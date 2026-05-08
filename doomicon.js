@@ -123,16 +123,25 @@
 
         let lastInteractionTime = 0;
         const originalTitle = document.title;
+        let currentTitle = originalTitle;
+
+        function setDocTitle(newTitle) {
+            if (currentTitle !== newTitle) {
+                document.title = newTitle;
+                currentTitle = newTitle;
+            }
+        }
+
         function updateTitle() {
             if (Date.now() - lastInteractionTime > 3000) {
-                document.title = originalTitle;
+                setDocTitle(originalTitle);
             } else if (!gameRunning) {
-                document.title = "WASD + Space to Shoot";
+                setDocTitle("WASD + Space to Shoot");
             } else {
                 const health = Math.floor(player.health);
                 const demons = sprites.filter(s => s.type === 1 && (s.state === 'alive' || s.state === 'dying')).length;
                 const ammo = player.ammo;
-                document.title = `❤️: ${health}% | 😈: ${demons} | 🔫: ${ammo}`;
+                setDocTitle(`❤️: ${health}% | 😈: ${demons} | 🔫: ${ammo}`);
             }
         }
 
@@ -441,7 +450,6 @@
              }
         }
 
-        // --- Game Flow & UI ---
         function startGame() {
             player.x = 1.5;
             player.y = 1.5;
@@ -463,13 +471,12 @@
             updateTitle();
 
             overlay.style.display = 'none';
-            canvas.requestPointerLock();
             gameRunning = true;
         }
 
         function endGame(isWin) {
             gameRunning = false;
-            document.title = isWin ? "YOU WIN!" : "GAME OVER";
+            setDocTitle(isWin ? "YOU WIN!" : "GAME OVER");
         }
 
         // --- Event Listeners ---
