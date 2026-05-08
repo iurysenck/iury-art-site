@@ -502,7 +502,6 @@
             if (gameRunning && e.movementX !== 0) {
                 // Adjust sensitivity so it's not too crazy while browsing
                 rotatePlayer(e.movementX * 0.5);
-                lastInteractionTime = Date.now();
             }
         });
 
