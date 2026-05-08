@@ -121,12 +121,13 @@
             faviconLink.href = faviconCanvas.toDataURL('image/png');
         }
 
+        let lastInteractionTime = 0;
         const originalTitle = document.title;
         function updateTitle() {
-            if (document.pointerLockElement !== canvas) {
+            if (Date.now() - lastInteractionTime > 3000) {
                 document.title = originalTitle;
             } else if (!gameRunning) {
-                document.title = "WASD + Click Attack";
+                document.title = "WASD + Space to Shoot";
             } else {
                 const health = Math.floor(player.health);
                 const demons = sprites.filter(s => s.type === 1 && (s.state === 'alive' || s.state === 'dying')).length;
@@ -137,13 +138,7 @@
 
         // --- Update Logic ---
         function update() {
-            if (document.pointerLockElement !== canvas) {
-                // Auto-pan camera when not actively playing (demo mode)
-                rotatePlayer(3);
-            } else {
-                // Only allow movement if pointer is locked
-                movePlayer();
-            }
+            movePlayer();
             updateSprites();
             updateTitle();
         }
@@ -153,7 +148,6 @@
             let moveX = 0;
             let moveY = 0;
 
-            // Calculate combined movement vector for forward/backward
             if (keys['w'] || keys['arrowup']) {
                 moveX += player.dirX * speed;
                 moveY += player.dirY * speed;
@@ -163,14 +157,11 @@
                 moveY -= player.dirY * speed;
             }
 
-            // Calculate combined movement vector for strafing
             if (keys['a'] || keys['arrowleft']) {
-                moveX -= player.planeX * speed;
-                moveY -= player.planeY * speed;
+                rotatePlayer(-15);
             }
             if (keys['d'] || keys['arrowright']) {
-                moveX += player.planeX * speed;
-                moveY += player.planeY * speed;
+                rotatePlayer(15);
             }
 
             // Check for collision on X axis and move if clear
@@ -478,58 +469,26 @@
 
         function endGame(isWin) {
             gameRunning = false;
-            document.exitPointerLock();
-            if (document.pointerLockElement === canvas) {
-                document.title = isWin ? "YOU WIN!" : "GAME OVER";
-            }
+            document.title = isWin ? "YOU WIN!" : "GAME OVER";
         }
 
         // --- Event Listeners ---
-        window.addEventListener('keydown', (e) => keys[e.key.toLowerCase()] = true);
-        window.addEventListener('keyup', (e) => keys[e.key.toLowerCase()] = false);
-
-        // Click anywhere to start game or shoot
-
-        const startDoomBtn = document.getElementById('startDoomBtn');
-        if (startDoomBtn) {
-            startDoomBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                startGame();
-            });
-        }
-        
-        document.addEventListener('click', (e) => {
-            if (gameRunning && document.pointerLockElement === canvas) {
-                shoot();
-            }
-        });
-    
-
-        canvas.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent double triggering
-            if(gameRunning) {
-                shoot();
-            } else {
-                canvas.requestPointerLock();
-            }
-        });
-        
-        document.addEventListener('pointerlockchange', () => {
-            if (document.pointerLockElement !== canvas) {
-                // Pause game if pointer lock is lost, unless the game is already over
-                if(gameRunning) {
-                   // This could be a pause menu in a full game
+        window.addEventListener('keydown', (e) => {
+            const key = e.key.toLowerCase();
+            keys[key] = true;
+            if (['w', 'a', 's', 'd', ' ', 'arrowup', 'arrowdown', 'arrowleft', 'arrowright'].includes(key)) {
+                lastInteractionTime = Date.now();
+                if (key === ' ') {
+                    e.preventDefault(); // Prevent scrolling with spacebar
+                    if (!gameRunning) {
+                        startGame();
+                    } else {
+                        shoot();
+                    }
                 }
             }
         });
-
-        document.addEventListener('mousemove', (e) => {
-            if (document.pointerLockElement === canvas) {
-                rotatePlayer(e.movementX);
-            }
-        });
-
-        startButton.addEventListener('click', startGame);
+        window.addEventListener('keyup', (e) => keys[e.key.toLowerCase()] = false);
 
         // Initial setup
         updateEnemiesLeft();
