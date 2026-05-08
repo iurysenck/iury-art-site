@@ -121,12 +121,13 @@
             faviconLink.href = faviconCanvas.toDataURL('image/png');
         }
 
+        const originalTitle = document.title;
         function updateTitle() {
-            if (!gameRunning) {
-                // Show controls when not playing
+            if (document.pointerLockElement !== canvas) {
+                document.title = originalTitle;
+            } else if (!gameRunning) {
                 document.title = "WASD + Click Attack";
             } else {
-                // Show game status when playing
                 const health = Math.floor(player.health);
                 const demons = sprites.filter(s => s.type === 1 && (s.state === 'alive' || s.state === 'dying')).length;
                 const ammo = player.ammo;
@@ -445,7 +446,6 @@
 
         // --- Game Flow & UI ---
         function startGame() {
-            // Reset player and sprites
             player.x = 1.5;
             player.y = 1.5;
             player.health = 100;
@@ -465,19 +465,17 @@
             updateEnemiesLeft();
             updateTitle();
 
-            // Keep game container hidden - only show in favicon
             overlay.style.display = 'none';
             canvas.requestPointerLock();
             gameRunning = true;
-            gameLoop();
         }
 
         function endGame(isWin) {
             gameRunning = false;
             document.exitPointerLock();
-            // Update title to show game result
-            document.title = isWin ? "YOU WIN!" : "GAME OVER";
-            // Keep game container hidden - only show in favicon
+            if (document.pointerLockElement === canvas) {
+                document.title = isWin ? "YOU WIN!" : "GAME OVER";
+            }
         }
 
         // --- Event Listeners ---
@@ -531,6 +529,9 @@
 
         // Initial setup
         updateEnemiesLeft();
-        updateTitle(); // Show controls in title initially
+        updateTitle(); 
+        
+        // Start running the background simulation
+        gameRunning = true;
+        gameLoop();
     });
-    
