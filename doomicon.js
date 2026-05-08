@@ -137,7 +137,13 @@
 
         // --- Update Logic ---
         function update() {
-            movePlayer();
+            if (document.pointerLockElement !== canvas) {
+                // Auto-pan camera when not actively playing (demo mode)
+                rotatePlayer(3);
+            } else {
+                // Only allow movement if pointer is locked
+                movePlayer();
+            }
             updateSprites();
             updateTitle();
         }
