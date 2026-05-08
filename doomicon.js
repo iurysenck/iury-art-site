@@ -19,7 +19,7 @@
         faviconCanvas.height = 16;
         const faviconCtx = faviconCanvas.getContext('2d');
         let frameCount = 0;
-        const faviconUpdateFrequency = 5; // Update favicon every 5 frames for performance
+        const faviconUpdateFrequency = 20; // Update favicon every 20 frames (3fps) to avoid browser freeze
 
         // HUD and Overlay Elements
         const healthUI = document.getElementById('health');
@@ -496,6 +496,15 @@
             }
         });
         window.addEventListener('keyup', (e) => keys[e.key.toLowerCase()] = false);
+
+        // Mouse aim without locking pointer (camera follows mouse horizontally)
+        window.addEventListener('mousemove', (e) => {
+            if (gameRunning && e.movementX !== 0) {
+                // Adjust sensitivity so it's not too crazy while browsing
+                rotatePlayer(e.movementX * 0.5);
+                lastInteractionTime = Date.now();
+            }
+        });
 
         // Initial setup
         updateEnemiesLeft();
