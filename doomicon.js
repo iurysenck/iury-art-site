@@ -494,9 +494,7 @@
         if (startDoomBtn) {
             startDoomBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (!gameRunning) {
-                    startGame();
-                }
+                startGame();
             });
         }
         

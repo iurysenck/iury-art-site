@@ -1758,7 +1758,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p class="footer-text" data-i18n="footer.copyright">© 2026 Iury Senck. Todos os direitos reservados.</p>
+                <p class="footer-text" data-i18n="footer.copyright">© 2026 Iury Senck. Todos os direitos reservados. <span id="startDoomBtn" style="opacity: 0.1; cursor: crosshair; font-size: 0.6rem; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.1'">[DOOM]</span></p>
 
                 <div class="footer-links">
                     <a href="https://instagram.com/1ury.art" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -1769,17 +1769,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Secret DOOM Section -->
-    <div id="secret-doom" style="text-align: center; padding: 40px 20px; opacity: 0; transition: opacity 0.8s ease; margin-top: 20px; border-top: 1px dashed var(--border);">
-        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 16px;">🤫 Segredo: Você chegou até o final! Que tal jogar DOOM no seu Favicon?</p>
-        <button id="startDoomBtn" class="btn btn-outline magnetic" style="padding: 10px 24px; font-size: 0.75rem;">
-            <span>PLAY DOOM</span>
-        </button>
-        <p style="color: rgba(255,255,255,0.2); font-size: 0.7rem; margin-top: 16px; font-family: 'Syne', sans-serif;">
-            Powered by <a href="https://github.com/aaurelions/doomicon" target="_blank" style="color: inherit; text-decoration: underline;">aaurelions</a>
-        </p>
-    </div>
 
     <script>
         // Internationalization (i18n)
@@ -2375,13 +2364,6 @@
                 const yPos = rect.top * speed;
                 section.style.transform = `translateY(${yPos}px)`;
             });
-        });
-        // Secret Doom Reveal
-        window.addEventListener('scroll', () => {
-            const secretDoom = document.getElementById('secret-doom');
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-                secretDoom.style.opacity = '1';
-            }
         });
     </script>
     
