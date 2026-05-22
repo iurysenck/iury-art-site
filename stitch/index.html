@@ -1,0 +1,2417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Iury Senck - Produtor Audiovisual, Fotógrafo & Diretor de Arte no Rio de Janeiro. Experiência em produções para Disney/Star+, Grupo Globo, Salesforce e CBV. Fotografia, vídeo, design e desenvolvimento web.">
+    <meta name="author" content="Iury Senck">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Iury Senck | Produtor Audiovisual, Fotógrafo & Diretor de Arte">
+    <meta property="og:description"
+        content="Produtor Audiovisual & Fotógrafo no Rio de Janeiro. Produções para Disney/Star+, Grupo Globo, Salesforce e CBV. Fotografia, vídeo, direção de arte e desenvolvimento web.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iury.art">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Iury Senck | Produtor Audiovisual, Fotógrafo & Diretor de Arte</title>
+
+    <!-- Favicon -->
+    <link id="favicon" rel="icon" type="image/png" href="imgs/logo-iury.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg: #050505;
+            --bg-secondary: #0a0a0a;
+            --text: #ffffff;
+            --text-muted: #666666;
+            --accent: #ff3366;
+            --accent-secondary: #6366f1;
+            --border: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, border 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.hover {
+            width: 60px;
+            height: 60px;
+            border-color: var(--accent);
+            background: rgba(255, 51, 102, 0.1);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Noise Overlay */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(24px, 5vw, 80px);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 24px 0;
+            mix-blend-mode: difference;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding: 4px 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-social {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-social a {
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+
+        .nav-social a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero-gradient-1 {
+            top: -20%;
+            right: -10%;
+            background: var(--accent);
+        }
+
+        .hero-gradient-2 {
+            bottom: -30%;
+            left: -10%;
+            background: var(--accent-secondary);
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-30px, 30px) scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 150px 0 100px;
+            width: 100%;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3.5rem, 12vw, 10rem);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title .word {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-title .word:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .hero-title .word:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .hero-title .accent {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 0.8s;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: inherit;
+            text-decoration: none;
+            border-radius: 100px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: none;
+            border: none;
+            letter-spacing: 0.02em;
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn span {
+            /* Reset to default for pure Flexbox alignment */
+            line-height: normal;
+        }
+
+        .btn-primary {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+
+
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 80px;
+            margin-top: 100px;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        .stat {
+            position: relative;
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 8px;
+        }
+
+        /* Section */
+        .section {
+            padding: clamp(80px, 15vh, 150px) 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: clamp(48px, 8vh, 80px);
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 24px;
+        }
+
+        .section-label svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-size: 1.0625rem;
+            line-height: 1.8;
+        }
+
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .skill {
+            padding: 10px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .skill:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+
+        .about-image {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+
+        .about-image:hover img {
+            filter: grayscale(0%);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient);
+            opacity: 0.2;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .about-image:hover::before {
+            opacity: 0;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: none;
+        }
+
+        .portfolio-item:nth-child(1) {
+            grid-column: span 8;
+            aspect-ratio: 16/9;
+        }
+
+        .portfolio-item:nth-child(2) {
+            grid-column: span 4;
+            aspect-ratio: 3/4;
+        }
+
+        .portfolio-item:nth-child(3) {
+            grid-column: span 4;
+            aspect-ratio: 3/4;
+        }
+
+        .portfolio-item:nth-child(4) {
+            grid-column: span 4;
+            aspect-ratio: 3/4;
+        }
+
+        .portfolio-item:nth-child(5) {
+            grid-column: span 4;
+            aspect-ratio: 3/4;
+        }
+
+        .portfolio-item:nth-child(6) {
+            grid-column: span 8;
+            aspect-ratio: 16/9;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0.4) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .portfolio-overlay span {
+            font-size: 0.8125rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Dev Projects */
+        .dev-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .dev-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            color: inherit;
+            cursor: none;
+        }
+
+        .dev-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(255, 51, 102, 0.1);
+        }
+
+        .dev-card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .dev-card-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--text);
+        }
+
+        .dev-card h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .dev-card p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .dev-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .dev-card-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .dev-card:hover .dev-card-link svg {
+            transform: translateX(4px);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .service-card {
+            background: var(--bg);
+            padding: 48px 40px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            background: var(--card-bg);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 28px;
+            color: var(--accent);
+        }
+
+        .service-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .service-card h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        /* Partners */
+        .partners-wrap {
+            overflow: hidden;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .partners-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+        }
+
+        .partners-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .partner {
+            padding: 16px 48px;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .partner:hover {
+            color: var(--text);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+            padding-left: 12px;
+        }
+
+        .contact-link i {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 48px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            cursor: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: none;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .about-image {
+                order: -1;
+                max-height: 500px;
+            }
+
+            .portfolio-item {
+                grid-column: span 6 !important;
+            }
+
+            .dev-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats {
+                gap: 40px;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                cursor: auto;
+            }
+
+            .cursor,
+            .cursor-dot {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item {
+                grid-column: span 12 !important;
+                aspect-ratio: 4/3 !important;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Magnetic Button */
+        .magnetic {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Hero Canvas */
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Page Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .loader-text {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            overflow: hidden;
+        }
+
+        .loader-text span {
+            display: inline-block;
+            animation: loaderReveal 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 2px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            width: 0;
+            height: 100%;
+            background: var(--gradient);
+            animation: loaderProgress 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes loaderReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes loaderProgress {
+            to {
+                width: 100%;
+            }
+        }
+
+        .loader.loaded {
+            animation: loaderExit 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes loaderExit {
+            0% {
+                clip-path: inset(0 0 0 0);
+            }
+
+            100% {
+                clip-path: inset(0 0 100% 0);
+            }
+        }
+
+        /* Premium Text Animations */
+        .split-text {
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .split-text .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%) rotateX(-90deg);
+            transform-origin: center top;
+        }
+
+        .split-text.animate .char {
+            animation: charReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .split-text.accent .char {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes charReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        /* Image Reveal */
+        .img-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            transform: scaleX(1);
+            transform-origin: right;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .img-reveal.revealed::after {
+            transform: scaleX(0);
+        }
+
+        .img-reveal img {
+            transform: scale(1.3);
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .img-reveal.revealed img {
+            transform: scale(1);
+        }
+
+        /* Stagger Reveal */
+        .stagger-reveal {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .stagger-reveal.active {
+            animation: staggerUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes staggerUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Line Draw */
+        .line-draw {
+            position: relative;
+        }
+
+        .line-draw::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .line-draw:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Premium Hover Effects */
+        .portfolio-item .portfolio-overlay {
+            transform: translateY(20px);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 51, 102, 0.3) 0%, rgba(99, 102, 241, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: 1;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 1;
+        }
+
+        /* Service Card Premium */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        /* Smooth Section Transitions */
+        .section {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Skill Pills Animation */
+        .skill {
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+        }
+
+        .skills-wrap.active .skill {
+            animation: skillPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes skillPop {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Stats Counter Animation */
+        .stat-number {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .stats.animate .stat-number {
+            animation: counterPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes counterPop {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Nav Premium */
+        nav {
+            transform: translateY(-100%);
+            animation: navSlide 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 2.2s;
+        }
+
+        @keyframes navSlide {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* Marquee Glow */
+        .partners-wrap {
+            position: relative;
+        }
+
+        .partners-wrap::before,
+        .partners-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .partners-wrap::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--bg), transparent);
+        }
+
+        .partners-wrap::after {
+            right: 0;
+            background: linear-gradient(-90deg, var(--bg), transparent);
+        }
+
+        /* Tooltip */
+        .lang-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .lang-tooltip {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--accent);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: var(--text);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .lang-wrapper:hover .lang-tooltip,
+        .lang-tooltip.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-tooltip::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: 14px;
+            width: 8px;
+            height: 8px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--accent);
+            border-left: 1px solid var(--accent);
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-text">
+            <span style="animation-delay: 0.1s">i</span><span style="animation-delay: 0.15s">u</span><span
+                style="animation-delay: 0.2s">r</span><span style="animation-delay: 0.25s">y</span><span
+                style="animation-delay: 0.3s">.</span><span style="animation-delay: 0.35s">a</span><span
+                style="animation-delay: 0.4s">r</span><span style="animation-delay: 0.45s">t</span>
+        </div>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">iury.art</a>
+
+            <ul class="nav-links">
+                <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+                <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
+                <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
+            </ul>
+
+            <div class="nav-social">
+                <div class="lang-wrapper">
+                    <button id="lang-toggle" class="btn-outline"
+                        style="padding: 6px 12px; font-size: 0.75rem; border-radius: 6px; cursor: pointer; margin-right: 12px; background: transparent; color: var(--text); border: 1px solid var(--border);">EN</button>
+                    <div class="lang-tooltip show" id="lang-tooltip">Translate to English</div>
+                </div>
+                <a href="https://instagram.com/1ury.art" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram">
+                    <i data-lucide="instagram" style="width:20px;height:20px;"></i>
+                </a>
+                <a href="https://behance.net/iurysenck" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <i data-lucide="palette" style="width:20px;height:20px;"></i>
+                </a>
+                <a href="https://banlek.com/iury" target="_blank" rel="noopener noreferrer" aria-label="Banlek">
+                    <i data-lucide="trophy" style="width:20px;height:20px;"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-bg">
+            <div class="hero-gradient hero-gradient-1"></div>
+            <div class="hero-gradient hero-gradient-2"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-label" data-i18n="hero.label">Rio de Janeiro, Brasil</p>
+
+                <h1 class="hero-title">
+                    <span class="line"><span class="word">Iury</span></span>
+                    <span class="line"><span class="word accent">Senck</span></span>
+                </h1>
+
+                <p class="hero-description" data-i18n="hero.description">
+                    Produtor Audiovisual e Fotógrafo com +6 anos em Cinema, Publicidade, TV e Esporte. Já produzi para Disney/Star+, Grupo Globo, Salesforce e CBV. Bora criar algo F***?
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#portfolio" class="btn btn-primary magnetic">
+                        <span data-i18n="hero.cta_portfolio">Ver Meus Trabalhos</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#contato" class="btn btn-outline magnetic">
+                        <span data-i18n="hero.cta_contact">Bora Conversar</span>
+                    </a>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label" data-i18n="stats.years">Anos de Experiência</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label" data-i18n="stats.partners">Grandes Clientes</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label" data-i18n="stats.areas">Áreas de Atuação</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="sobre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <div class="section-header">
+                        <p class="section-label">
+                            <i data-lucide="user"></i>
+                            <span data-i18n="about.label">Sobre</span>
+                        </p>
+                        <h2 class="section-title" data-i18n="about.title">Cinema, Publicidade, Esporte e Código</h2>
+                    </div>
+
+                    <p data-i18n="about.text1">
+                        Profissional criativo multidisciplinar com atuação completa no pipeline: Direção de Arte, Captação, Edição, Pós-Produção, Design e Desenvolvimento Web. Do Mundial de Vôlei Master na CBV a longas-metragens com Disney/Star+, campanhas com Salesforce na sede do Grupo Globo e publicidade com Michel Teló.
+                    </p>
+                    <p data-i18n="about.text2">
+                        Autodidata desde os 10 anos em design e programação. Complemento meu olhar criativo com automação de processos via Python e IA, tradução profissional PT/EN e estratégia digital focada em resultados mensuráveis.
+                    </p>
+
+                    <div class="skills-wrap">
+                        <span class="skill" data-i18n="about.skill.photography">Fotografia</span>
+                        <span class="skill" data-i18n="about.skill.video">Vídeo</span>
+                        <span class="skill">Direção de Arte</span>
+                        <span class="skill">Premiere Pro</span>
+                        <span class="skill">After Effects</span>
+                        <span class="skill">DaVinci Resolve</span>
+                        <span class="skill">Photoshop</span>
+                        <span class="skill">Lightroom</span>
+                        <span class="skill">Illustrator</span>
+                        <span class="skill">React</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">Engenharia de Prompt</span>
+                        <span class="skill">Tradução PT/EN</span>
+                    </div>
+                </div>
+
+                <div class="about-image reveal">
+                    <img src="imgs/about-iury.jpg" alt="Iury Senck">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section" id="portfolio" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">
+                    <i data-lucide="image"></i>
+                    <span data-i18n="portfolio.label">Portfolio</span>
+                </p>
+                <h2 class="section-title" data-i18n="portfolio.title">Os Queridinhos</h2>
+                <p class="section-subtitle" data-i18n="portfolio.subtitle">Aqueles projetos que fizeram meu coração de
+                    criativo bater mais forte. Dá
+                    uma olhada!</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <a href="https://www.behance.net/gallery/124162717/RIO" target="_blank" rel="noopener noreferrer"
+                    class="portfolio-item reveal">
+                    <img src="imgs/portfolio/rio.webp" alt="RIO.">
+                    <div class="portfolio-overlay">
+                        <h4>RIO.</h4>
+                        <span data-i18n="portfolio.type.photography">Fotografia</span>
+                    </div>
+                </a>
+
+                <a href="https://www.behance.net/gallery/124292043/Plataforma-Uma-Cancao-Sua" target="_blank"
+                    rel="noopener noreferrer" class="portfolio-item reveal">
+                    <img src="imgs/portfolio/cancao.png" alt="Uma Canção Sua">
+                    <div class="portfolio-overlay">
+                        <h4>Uma Canção Sua</h4>
+                        <span data-i18n="portfolio.type.branding">Branding</span>
+                    </div>
+                </a>
+
+                <a href="https://www.behance.net/gallery/124153307/Smile" target="_blank" rel="noopener noreferrer"
+                    class="portfolio-item reveal">
+                    <img src="imgs/portfolio/smile.webp" alt="Smile">
+                    <div class="portfolio-overlay">
+                        <h4>Smile</h4>
+                        <span data-i18n="portfolio.type.design">Design</span>
+                    </div>
+                </a>
+
+                <a href="https://www.behance.net/gallery/124152825/Corpo-em-Poesia-Livre" target="_blank"
+                    rel="noopener noreferrer" class="portfolio-item reveal">
+                    <img src="imgs/portfolio/livre.webp" alt="Livre">
+                    <div class="portfolio-overlay">
+                        <h4>Livre</h4>
+                        <span data-i18n="portfolio.type.photography">Fotografia</span>
+                    </div>
+                </a>
+
+                <a href="https://www.behance.net/gallery/124160831/Narcisos" target="_blank" rel="noopener noreferrer"
+                    class="portfolio-item reveal">
+                    <img src="imgs/portfolio/narcisos.webp" alt="Narcisos">
+                    <div class="portfolio-overlay">
+                        <h4>Narcisos</h4>
+                        <span data-i18n="portfolio.type.shoot">Ensaio</span>
+                    </div>
+                </a>
+
+                <a href="https://www.behance.net/gallery/219338981/stream" target="_blank" rel="noopener noreferrer"
+                    class="portfolio-item reveal">
+                    <img src="imgs/portfolio/stream.jpg" alt="Stream">
+                    <div class="portfolio-overlay">
+                        <h4>Stream</h4>
+                        <span data-i18n="portfolio.type.digital_design">Design Digital</span>
+                    </div>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;" class="reveal">
+                <a href="https://behance.net/iurysenck" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-outline magnetic">
+                    <span data-i18n="portfolio.more_projects">Ver Mais Projetos</span>
+                    <i data-lucide="external-link"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Services Section -->
+    <section class="section" id="servicos" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">
+                    <i data-lucide="briefcase"></i>
+                    <span data-i18n="services.label">Serviços</span>
+                </p>
+                <h2 class="section-title" data-i18n="services.title">Minha Caixa de Ferramentas</h2>
+            </div>
+
+            <div class="services-grid reveal">
+                <div class="service-card">
+                    <i data-lucide="camera" class="service-icon"></i>
+                    <h4 data-i18n="services.card.photography">Fotografia</h4>
+                    <p data-i18n="services.desc.photography">Do clique ao resultado final — eventos, ensaios, esporte,
+                        produto. Entrega rápida porque eu sei
+                        que você tá ansioso pra ver!</p>
+                </div>
+
+                <div class="service-card">
+                    <i data-lucide="film" class="service-icon"></i>
+                    <h4 data-i18n="services.card.video">Vídeo & Motion</h4>
+                    <p data-i18n="services.desc.video">Reels, campanhas, motion design... Se mexe na tela, eu faço.
+                        Produção completa do roteiro ao
+                        "uau!".</p>
+                </div>
+
+                <div class="service-card">
+                    <i data-lucide="palette" class="service-icon"></i>
+                    <h4 data-i18n="services.card.design">Design & Branding</h4>
+                    <p data-i18n="services.desc.design">Sua marca merece uma cara que combine com ela. Logo, identidade
+                        visual, aquele feed harmonizado —
+                        tudo!</p>
+                </div>
+
+                <div class="service-card">
+                    <i data-lucide="sparkles" class="service-icon"></i>
+                    <h4 data-i18n="services.card.editing">Edição & Tratamento</h4>
+                    <p data-i18n="services.desc.editing">Aquele color grading que dá vontade de lamber a tela. Retoque,
+                        tratamento e entrega voando.</p>
+                </div>
+
+                <div class="service-card">
+                    <i data-lucide="layout" class="service-icon"></i>
+                    <h4 data-i18n="services.card.direction">Direção de Arte</h4>
+                    <p data-i18n="services.desc.direction">Mood certo, referências certas, resultado certeiro. Monto o
+                        conceito visual do seu projeto do
+                        zero.</p>
+                </div>
+
+                <div class="service-card">
+                    <i data-lucide="smartphone" class="service-icon"></i>
+                    <h4 data-i18n="services.card.social">Posicionamento Digital</h4>
+                    <p data-i18n="services.desc.social">Estratégias e pipelines automatizados com IA que geram engajamento e alavancam métricas reais nas suas campanhas.</p>
+                </div>
+
+                <div class="service-card">
+                    <i data-lucide="code" class="service-icon"></i>
+                    <h4 data-i18n="services.card.dev">Desenvolvimento Web</h4>
+                    <p data-i18n="services.desc.dev">Landing pages, plataformas e automações com HTML, CSS, JavaScript, React e Python. Do design ao deploy.</p>
+                </div>
+
+                <div class="service-card">
+                    <i data-lucide="languages" class="service-icon"></i>
+                    <h4 data-i18n="services.card.translation">Tradução PT/EN</h4>
+                    <p data-i18n="services.desc.translation">Tradução profissional de documentos técnicos e comerciais, localização de conteúdo e legendagem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="section" style="padding: 0;">
+        <div class="partners-wrap">
+            <div class="partners-track">
+                <span class="partner">Disney/Star+</span>
+                <span class="partner">Grupo Globo</span>
+                <span class="partner">Salesforce</span>
+                <span class="partner">CBV</span>
+                <span class="partner">LAR Cooperativa</span>
+                <span class="partner">Canal Off</span>
+                <span class="partner">ONBUS</span>
+                <span class="partner">Cury Construtora</span>
+                <span class="partner">FVMR</span>
+                <span class="partner">Banlek Sports</span>
+                <span class="partner">SENAI</span>
+                <span class="partner">Climate Tracker</span>
+                <span class="partner">Rio Card</span>
+                <span class="partner">Rádio Mix FM</span>
+                <span class="partner">Instituto JNG</span>
+                <span class="partner">Disney/Star+</span>
+                <span class="partner">Grupo Globo</span>
+                <span class="partner">Salesforce</span>
+                <span class="partner">CBV</span>
+                <span class="partner">LAR Cooperativa</span>
+                <span class="partner">Canal Off</span>
+                <span class="partner">ONBUS</span>
+                <span class="partner">Cury Construtora</span>
+                <span class="partner">FVMR</span>
+                <span class="partner">Banlek Sports</span>
+                <span class="partner">SENAI</span>
+                <span class="partner">Climate Tracker</span>
+                <span class="partner">Rio Card</span>
+                <span class="partner">Rádio Mix FM</span>
+                <span class="partner">Instituto JNG</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contato">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3 data-i18n="contact.title">Bora trocar uma ideia?</h3>
+                    <p data-i18n="contact.text">
+                        Tem um projeto doido na cabeça? Quer fazer aquele conteúdo que vai bombar?
+                        Cola aqui comigo — adoro parcerias criativas e desafios novos!
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="https://wa.me/5521972458143" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
+                            <i data-lucide="message-circle"></i>
+                            <span>+55 21 97245-8143</span>
+                        </a>
+
+                        <a href="mailto:iury.senck7@gmail.com" class="contact-link">
+                            <i data-lucide="mail"></i>
+                            <span>iury.senck7@gmail.com</span>
+                        </a>
+
+                        <a href="https://instagram.com/1ury.art" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
+                            <i data-lucide="instagram"></i>
+                            <span>@1ury.art</span>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal" action="https://formspree.io/f/mwvbybpj" method="POST">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.form.name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Qual seu nome?"
+                            data-i18n-placeholder="contact.form.placeholder.name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" data-i18n="contact.form.email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com"
+                            data-i18n-placeholder="contact.form.placeholder.email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-i18n="contact.form.message">Mensagem</label>
+                        <textarea id="message" name="message"
+                            placeholder="Me conta a ideia! Pode mandar o textão que eu leio tudo 😄"
+                            data-i18n-placeholder="contact.form.placeholder.message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary magnetic" style="width: 100%;">
+                        <span data-i18n="contact.form.send">Enviar Mensagem</span>
+                        <i data-lucide="send"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text" data-i18n="footer.copyright">© 2026 Iury Senck. Todos os direitos reservados. <span style="opacity: 0.15; font-size: 0.65rem; margin-left: 10px; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.15'">W A S D + SPACE</span></p>
+
+                <div class="footer-links">
+                    <a href="https://instagram.com/1ury.art" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://behance.net/iurysenck" target="_blank" rel="noopener noreferrer">Behance</a>
+                    <a href="https://banlek.com/iury" target="_blank" rel="noopener noreferrer">Banlek</a>
+                    <a href="mailto:iury.senck7@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Internationalization (i18n)
+        const translations = {
+            pt: {
+                nav: {
+                    about: "Sobre",
+                    portfolio: "Portfolio",
+                    services: "Serviços",
+                    contact: "Contato"
+                },
+                hero: {
+                    label: "Rio de Janeiro, Brasil",
+                    description: "Produtor Audiovisual e Fotógrafo com +6 anos em Cinema, Publicidade, TV e Esporte. Já produzi para Disney/Star+, Grupo Globo, Salesforce e CBV. Bora criar algo F***?",
+                    cta_portfolio: "Ver Meus Trabalhos",
+                    cta_contact: "Bora Conversar"
+                },
+                stats: {
+                    years: "Anos de Experiência",
+                    partners: "Grandes Clientes",
+                    areas: "Áreas de Atuação"
+                },
+                about: {
+                    label: "Sobre",
+                    title: "Cinema, Publicidade, Esporte e Código",
+                    text1: "Profissional criativo multidisciplinar com atuação completa no pipeline: Direção de Arte, Captação, Edição, Pós-Produção, Design e Desenvolvimento Web. Do Mundial de Vôlei Master na CBV a longas-metragens com Disney/Star+, campanhas com Salesforce na sede do Grupo Globo e publicidade com Michel Teló.",
+                    text2: "Autodidata desde os 10 anos em design e programação. Complemento meu olhar criativo com automação de processos via Python e IA, tradução profissional PT/EN e estratégia digital focada em resultados mensuráveis.",
+                    skill: {
+                        photography: "Fotografia",
+                        video: "Vídeo"
+                    }
+                },
+                portfolio: {
+                    label: "Portfolio",
+                    title: "Os Queridinhos",
+                    subtitle: "Aqueles projetos que fizeram meu coração bater mais forte.",
+                    type: {
+                        photography: "Fotografia",
+                        branding: "Branding",
+                        design: "Design",
+                        shoot: "Ensaio",
+                        digital_design: "Design Digital"
+                    },
+                    more_projects: "Ver Mais Projetos"
+                },
+                services: {
+                    label: "Serviços",
+                    title: "Minha Caixa de Ferramentas",
+                    card: {
+                        photography: "Fotografia",
+                        video: "Vídeo & Motion",
+                        design: "Design & Branding",
+                        editing: "Edição & Tratamento",
+                        direction: "Direção de Arte",
+                        social: "Posicionamento Digital",
+                        dev: "Desenvolvimento Web",
+                        translation: "Tradução PT/EN"
+                    },
+                    desc: {
+                        photography: "Do clique ao resultado final — eventos, ensaios, esporte, produto. Entrega rápida e workflow automatizado com IA.",
+                        video: "Reels, campanhas, motion design... Produção completa e direcionada a conversão e impacto da marca.",
+                        design: "Sua marca merece uma cara que combine com ela. Identidade visual e posicionamento estratégico no mercado.",
+                        editing: "Aquele color grading profissional. Retoque, tratamento e otimização para todos os formatos.",
+                        direction: "Mood certo, referências certas, resultado certeiro. Monto o conceito visual do seu projeto focado em resultados.",
+                        social: "Estratégias e pipelines automatizados com IA que geram engajamento e alavancam métricas reais.",
+                        dev: "Landing pages, plataformas e automações com HTML, CSS, JavaScript, React e Python. Do design ao deploy.",
+                        translation: "Tradução profissional de documentos técnicos e comerciais, localização de conteúdo e legendagem."
+                    }
+                },
+                contact: {
+                    title: "Bora trocar uma ideia?",
+                    text: "Tem um projeto doido na cabeça? Quer fazer aquele conteúdo que vai bombar? Cola aqui comigo — adoro parcerias criativas e desafios novos!",
+                    form: {
+                        name: "Nome",
+                        email: "Email",
+                        message: "Mensagem",
+                        placeholder: {
+                            name: "Qual seu nome?",
+                            email: "seu@email.com",
+                            message: "Me conta a ideia! Pode mandar o textão que eu leio tudo 😄"
+                        },
+                        send: "Enviar Mensagem"
+                    }
+                },
+                footer: {
+                    copyright: "© 2026 Iury Senck. Todos os direitos reservados."
+                }
+            },
+            en: {
+                nav: {
+                    about: "About",
+                    portfolio: "Portfolio",
+                    services: "Services",
+                    contact: "Contact"
+                },
+                hero: {
+                    label: "Rio de Janeiro, Brazil",
+                    description: "Audiovisual Producer & Photographer with 6+ years in Film, Advertising, TV & Sports. Produced for Disney/Star+, Grupo Globo, Salesforce & CBV. Let's create something EPIC?",
+                    cta_portfolio: "View My Work",
+                    cta_contact: "Let's Talk"
+                },
+                stats: {
+                    years: "Years of Experience",
+                    partners: "Major Clients",
+                    areas: "Areas of Expertise"
+                },
+                about: {
+                    label: "About",
+                    title: "Film, Advertising, Sports & Code",
+                    text1: "Creative multidisciplinary professional with full pipeline expertise: Art Direction, Capture, Editing, Post-Production, Design and Web Development. From the Masters Volleyball World Cup at CBV to feature films with Disney/Star+, campaigns with Salesforce at Grupo Globo HQ and ads with Michel Teló.",
+                    text2: "Self-taught since age 10 in design and programming. I complement my creative eye with process automation via Python and AI, professional PT/EN translation and digital strategy focused on measurable results.",
+                    skill: {
+                        photography: "Photography",
+                        video: "Video"
+                    }
+                },
+                portfolio: {
+                    label: "Portfolio",
+                    title: "The Favorites",
+                    subtitle: "Those projects that made my creative heart beat faster. Take a look!",
+                    type: {
+                        photography: "Photography",
+                        branding: "Branding",
+                        design: "Design",
+                        shoot: "Photoshoot",
+                        digital_design: "Digital Design"
+                    },
+                    more_projects: "View More Projects"
+                },
+                services: {
+                    label: "Services",
+                    title: "My Toolbox",
+                    card: {
+                        photography: "Photography",
+                        video: "Video & Motion",
+                        design: "Design & Branding",
+                        editing: "Editing & Retouching",
+                        direction: "Art Direction",
+                        social: "Digital Positioning",
+                        dev: "Web Development",
+                        translation: "Translation PT/EN"
+                    },
+                    desc: {
+                        photography: "From the click to the final result — events, shoots, sports, products. Fast delivery and AI-automated workflow.",
+                        video: "Reels, campaigns, motion design... Full production directed to conversion and brand impact.",
+                        design: "Your brand deserves a look that matches it. Visual identity and strategic positioning in the market.",
+                        editing: "That professional color grading. Retouching, treatment and optimization for all formats.",
+                        direction: "Right mood, right references, spot-on result. I build the visual concept of your project focused on results.",
+                        social: "AI-automated strategies and pipelines that generate real engagement and leverage metrics.",
+                        dev: "Landing pages, platforms and automations with HTML, CSS, JavaScript, React and Python. From design to deploy.",
+                        translation: "Professional translation of technical and commercial documents, content localization and subtitling."
+                    }
+                },
+                contact: {
+                    title: "Let's exchange ideas?",
+                    text: "Have a crazy project in mind? Want to make content that goes viral? Stick with me — I love creative partnerships and new challenges!",
+                    form: {
+                        name: "Name",
+                        email: "Email",
+                        message: "Message",
+                        placeholder: {
+                            name: "What's your name?",
+                            email: "your@email.com",
+                            message: "Tell me the idea! You can send a long text, I read everything 😄"
+                        },
+                        send: "Send Message"
+                    }
+                },
+                footer: {
+                    copyright: "© 2026 Iury Senck. All rights reserved."
+                }
+            }
+        };
+
+        const langToggleBtn = document.getElementById('lang-toggle');
+        let currentLang = localStorage.getItem('language') || 'pt';
+
+        function getNestedTranslation(obj, path) {
+            return path.split('.').reduce((prev, curr) => {
+                return prev ? prev[curr] : null;
+            }, obj);
+        }
+
+        function updateContent(lang) {
+            // Update Text Content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const translation = getNestedTranslation(translations[lang], key);
+                // Check if translation exists and is not empty string, OR if it is empty string but we want to clear it (optional, but sticking to truthy for now)
+                // Actually, if split correctly, text2 will be non-empty in PT.
+                if (typeof translation === 'string') {
+                    el.textContent = translation;
+                }
+            });
+
+            // Update Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                const translation = getNestedTranslation(translations[lang], key);
+                if (translation) {
+                    el.placeholder = translation;
+                }
+            });
+
+            // Update Button Text
+            if (langToggleBtn) {
+                langToggleBtn.textContent = lang === 'pt' ? 'EN' : 'PT';
+            }
+
+            // Update HTML Lang Attribute
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+            // Save Preference
+            localStorage.setItem('language', lang);
+            currentLang = lang;
+        }
+
+        // Initialize Language
+        updateContent(currentLang);
+
+        // Toggle Event
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', () => {
+                const newLang = currentLang === 'pt' ? 'en' : 'pt';
+                updateContent(newLang);
+
+            });
+        }
+
+        // Automatic Tooltip Logic
+        const tooltip = document.getElementById('lang-tooltip');
+        let tooltipTimeout;
+
+        function showTooltip() {
+            if (tooltip && currentLang === 'pt') { // Only show if still in Portuguese
+                tooltip.classList.add('show');
+
+                // Hide after 5 seconds
+                clearTimeout(tooltipTimeout);
+                tooltipTimeout = setTimeout(() => {
+                    tooltip.classList.remove('show');
+                }, 5000);
+            }
+        }
+
+        // Initial show (wait a bit after load)
+        setTimeout(showTooltip, 3000);
+
+        // Repeat every 10 minutes (600,000 ms)
+        setInterval(showTooltip, 600000);
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Hover effect on interactive elements
+        const hoverElements = document.querySelectorAll('a, button, .portfolio-item, .dev-card, .service-card');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Magnetic button effect
+        const magneticBtns = document.querySelectorAll('.magnetic');
+
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Parallax effect on hero gradients
+        document.addEventListener('mousemove', (e) => {
+            const gradients = document.querySelectorAll('.hero-gradient');
+            const x = (e.clientX / window.innerWidth - 0.5) * 30;
+            const y = (e.clientY / window.innerHeight - 0.5) * 30;
+
+            gradients.forEach((gradient, i) => {
+                const direction = i === 0 ? 1 : -1;
+                gradient.style.transform = `translate(${x * direction}px, ${y * direction}px)`;
+            });
+        });
+
+        // Interactive Particle Canvas
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        function resizeCanvas() {
+            const hero = document.querySelector('.hero');
+            canvas.width = hero.offsetWidth;
+            canvas.height = hero.offsetHeight;
+            initParticles();
+        }
+
+        class Particle {
+            constructor(x, y) {
+                this.baseX = x;
+                this.baseY = y;
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 2 + 0.5;
+                this.density = (Math.random() * 30) + 1;
+                this.alpha = Math.random() * 0.5 + 0.1;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 51, 102, ${this.alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            update() {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                    this.alpha = Math.min(1, this.alpha + 0.05);
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        this.x -= dx / 10;
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        this.y -= dy / 10;
+                    }
+                    this.alpha = Math.max(0.1, this.alpha - 0.02);
+                }
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const spacing = 30;
+            const cols = Math.floor(canvas.width / spacing);
+            const rows = Math.floor(canvas.height / spacing);
+
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    let x = i * spacing + spacing / 2;
+                    let y = j * spacing + spacing / 2;
+                    particles.push(new Particle(x, y));
+                }
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].draw();
+                particles[i].update();
+            }
+
+            // Draw connections
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 50) {
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - distance / 50)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        // Track mouse on hero
+        document.querySelector('.hero').addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+
+        document.querySelector('.hero').addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        animateParticles();
+
+        // =====================
+        // PREMIUM ANIMATIONS
+        // =====================
+
+        // Page Loader
+        const loader = document.getElementById('loader');
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('loaded');
+                document.body.style.overflow = 'auto';
+
+                // Trigger hero animations after loader
+                setTimeout(() => {
+                    animateHeroText();
+                    document.querySelector('.stats').classList.add('animate');
+                }, 500);
+            }, 2000);
+        });
+
+        // Animate Hero Title Characters
+        function animateHeroText() {
+            const heroTitle = document.querySelector('.hero-title');
+            const words = heroTitle.querySelectorAll('.word');
+
+            words.forEach((word, wordIndex) => {
+                const text = word.textContent;
+                const hasAccent = word.classList.contains('accent');
+                word.innerHTML = '';
+
+                text.split('').forEach((char, charIndex) => {
+                    const span = document.createElement('span');
+                    span.className = 'char';
+                    span.textContent = char;
+                    span.style.animationDelay = `${(wordIndex * 0.3) + (charIndex * 0.05)}s`;
+                    word.appendChild(span);
+                });
+
+                word.classList.add('split-text', 'animate');
+                if (hasAccent) {
+                    word.classList.add('accent');
+                }
+            });
+        }
+
+        // Section In-View Observer
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+
+                    // Trigger skill animations
+                    const skillsWrap = entry.target.querySelector('.skills-wrap');
+                    if (skillsWrap) {
+                        setTimeout(() => {
+                            skillsWrap.classList.add('active');
+                            skillsWrap.querySelectorAll('.skill').forEach((skill, i) => {
+                                skill.style.animationDelay = `${i * 0.1}s`;
+                            });
+                        }, 300);
+                    }
+
+                    // Trigger image reveal
+                    const imgReveal = entry.target.querySelector('.about-image');
+                    if (imgReveal) {
+                        setTimeout(() => {
+                            imgReveal.classList.add('img-reveal', 'revealed');
+                        }, 200);
+                    }
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.section').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Portfolio Items Stagger
+        const portfolioObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('.portfolio-item');
+                    items.forEach((item, i) => {
+                        item.classList.add('stagger-reveal');
+                        setTimeout(() => {
+                            item.classList.add('active');
+                        }, i * 150);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const portfolioGrid = document.querySelector('.portfolio-grid');
+        if (portfolioGrid) {
+            portfolioObserver.observe(portfolioGrid);
+        }
+
+        // Services Stagger
+        const servicesObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.service-card');
+                    cards.forEach((card, i) => {
+                        card.classList.add('stagger-reveal');
+                        setTimeout(() => {
+                            card.classList.add('active');
+                        }, i * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const servicesGrid = document.querySelector('.services-grid');
+        if (servicesGrid) {
+            servicesObserver.observe(servicesGrid);
+        }
+
+        // Contact Links Line Draw
+        document.querySelectorAll('.contact-link').forEach(link => {
+            link.classList.add('line-draw');
+        });
+
+        // Smooth Scroll with Progress
+        let scrollProgress = 0;
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            scrollProgress = (winScroll / height) * 100;
+
+            // Parallax for sections
+            document.querySelectorAll('.section.in-view').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const speed = 0.1;
+                const yPos = rect.top * speed;
+                section.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+    </script>
+    
+    <!-- Hidden DOOM Container -->
+    <div id="gameContainer" style="display: none;">
+        <canvas id="gameCanvas"></canvas>
+        <div id="hud">
+            <span id="health">100</span>
+            <span id="enemiesLeft">0</span>
+            <span id="ammo">50</span>
+        </div>
+        <div id="crosshair"></div>
+        <div id="overlay">
+            <button id="startButton">Start Game</button>
+        </div>
+    </div>
+    <script src="doomicon.js"></script>
+</body>
+
+</html>
