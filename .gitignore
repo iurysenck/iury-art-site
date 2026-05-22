@@ -22,3 +22,6 @@ cline_mcp_settings.json
 .agents/
 skills-lock.json
 
+# Local assets and planning folders
+arte/
+.planning/
