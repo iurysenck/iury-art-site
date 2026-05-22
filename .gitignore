@@ -16,3 +16,9 @@ npm-debug.log*
 # Temp
 *.tmp
 *.temp
+
+# Local MCP and Agent configurations
+cline_mcp_settings.json
+.agents/
+skills-lock.json
+
