@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ensaio de Formatura | Iury Senck</title>
+<meta name="description" content="Ensaio individual de formatura em locação externa. R$250, 25 fotos editadas, entrega em até 5 dias úteis.">
+
+<link rel="canonical" href="https://iury.art/formatura/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iury.art/formatura/">
+<meta property="og:title" content="Ensaio de Formatura | Iury Senck">
+<meta property="og:description" content="Ensaio individual de formatura em locação externa. R$250, 25 fotos editadas, entrega em até 5 dias úteis.">
+<meta property="og:image" content="https://iury.art/formatura/imgs/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ensaio de Formatura | Iury Senck">
+<meta name="twitter:description" content="Ensaio individual de formatura em locação externa. R$250, 25 fotos editadas, entrega em até 5 dias úteis.">
+<meta name="twitter:image" content="https://iury.art/formatura/imgs/og-image.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Ensaio fotográfico de formatura",
+  "provider": {
+    "@type": "Person",
+    "name": "Iury Senck",
+    "url": "https://iury.art"
+  },
+  "areaServed": "Rio de Janeiro, RJ",
+  "offers": {
+    "@type": "Offer",
+    "price": "250",
+    "priceCurrency": "BRL"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "E se chover ou o tempo virar no dia?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Reagendamos sem custo, dentro do prazo combinado. O clima não pode estragar seu ensaio." }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso levar alguém comigo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "O ensaio é individual, mas pode trazer uma pessoa de apoio — só não entra nas fotos." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo dura o ensaio?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Em torno de 1h a 1h30, sem pressa, com tempo pra trocar de pose e testar ideias." }
+    },
+    {
+      "@type": "Question",
+      "name": "E se eu não gostar de nenhuma foto na seleção?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A seleção acontece com o fotógrafo, no próprio dia — as melhores fotos são escolhidas juntos antes do fim do ensaio." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050505;
+    --bg-secondary: #0a0a0a;
+    --text: #ffffff;
+    --text-muted: #666666;
+    --accent: #ff3366;
+    --accent-secondary: #6366f1;
+    --gradient: linear-gradient(135deg, #ff3366 0%, #6366f1 100%);
+    --border: rgba(255, 255, 255, 0.08);
+    --card-bg: rgba(255, 255, 255, 0.02);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Space Grotesk", -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1 { font-family: Syne, sans-serif; font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; }
+  h2, h3 { font-family: Syne, sans-serif; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+
+  .icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--gradient);
+  }
+
+  .gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* REVEAL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.02s; }
+  .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.09s; }
+  .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.16s; }
+  .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.23s; }
+  .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.30s; }
+  .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.37s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > * { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(5, 5, 5, 0.6);
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav .logo-group { display: flex; align-items: center; gap: 10px; }
+  nav .logo { font-family: Syne, sans-serif; font-weight: 800; font-size: 18px; }
+
+  nav .cta-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: var(--gradient);
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  nav .cta-mini .icon { width: 15px; height: 15px; }
+  nav .cta-mini:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 51, 102, 0.35); }
+
+  /* HERO */
+  header.hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header.hero::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    max-width: 700px;
+    max-height: 700px;
+    background: radial-gradient(circle, rgba(255, 51, 102, 0.18) 0%, rgba(99, 102, 241, 0.08) 45%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+
+  .hero-inner { max-width: 1080px; margin: 0 auto; width: 100%; position: relative; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 760px;
+  }
+
+  h1.hero-title {
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    margin: 20px 0 24px;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: #ccc;
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+
+  .hero-ctas { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; margin-bottom: 72px; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gradient);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 16px 32px;
+    border-radius: 100px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255, 51, 102, 0.4); }
+  .btn-primary .icon { width: 17px; height: 17px; }
+
+  .link-arrow {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+  }
+  .link-arrow:hover { border-color: var(--text); }
+
+  /* STATS REVEAL */
+  #stats-reveal {
+    border-top: none;
+    position: relative;
+    overflow: hidden;
+  }
+  #stats-reveal::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    height: 70vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, rgba(255, 51, 102, 0.08) 45%, transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+  }
+  #stats-reveal.is-visible::before { opacity: 1; }
+
+  .stats-arrange {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: "primary secondary-a" "primary secondary-b";
+    align-items: center;
+    justify-content: center;
+    column-gap: clamp(28px, 7vw, 90px);
+    row-gap: clamp(14px, 3vw, 26px);
+  }
+  @media (max-width: 640px) {
+    .stats-arrange {
+      grid-template-columns: 1fr;
+      grid-template-areas: "primary" "secondary-a" "secondary-b";
+      justify-items: center;
+    }
+  }
+  .stat-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .stat-primary { grid-area: primary; }
+  .stat-primary .stat-number { font-size: clamp(5rem, 16vw, 11rem); }
+  .stat-secondary-a { grid-area: secondary-a; align-self: end; }
+  .stat-secondary-b { grid-area: secondary-b; align-self: start; }
+  .stat-secondary-a .stat-number,
+  .stat-secondary-b .stat-number { font-size: clamp(2.4rem, 6vw, 4rem); }
+  @media (max-width: 640px) {
+    .stat-secondary-a, .stat-secondary-b { align-self: center; }
+  }
+
+  .stat-number {
+    font-family: Syne, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 0; border-top: 1px solid var(--border); }
+
+  section.snap-section {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 16px 0 48px; max-width: 640px; }
+
+  /* STACKED SCROLL GALLERY */
+  .hscroll-wrap { position: relative; height: 400vh; }
+  .hscroll-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px;
+  }
+  .hscroll-header { flex: 0 0 auto; position: relative; z-index: 5; }
+  .hscroll-track {
+    position: relative;
+    flex: 1 1 auto;
+  }
+  .hscroll-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(52vw, 360px);
+    aspect-ratio: 3 / 4;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+    will-change: transform, opacity;
+  }
+  .hscroll-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hscroll-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.7) 100%);
+  }
+  .hscroll-item .tag {
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.25s ease;
+  }
+  .hscroll-item .tag .icon { width: 14px; height: 14px; color: var(--accent); }
+
+  .heart-pop {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .heart-pop svg {
+    width: 84px;
+    height: 84px;
+    color: #fff;
+    opacity: 0;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,0.45));
+    animation: heartPop 0.7s ease forwards;
+  }
+  @keyframes heartPop {
+    0% { opacity: 0; transform: scale(0.4); }
+    30% { opacity: 1; transform: scale(1.15); }
+    45% { transform: scale(0.95); }
+    60% { transform: scale(1.05); }
+    100% { opacity: 0; transform: scale(1); }
+  }
+
+  .hscroll-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+  }
+  .stats-dots { bottom: 56px; }
+  .hscroll-dots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .hscroll-dots .dot.active { background: var(--gradient); transform: scale(1.5); }
+
+  @media (max-width: 720px) {
+    .hscroll-wrap { height: 340vh; }
+    .hscroll-item { width: min(64vw, 300px); }
+  }
+
+  /* INCLUSO GRID */
+  .incluso-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 16px;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  }
+  .icon-badge .icon { width: 22px; height: 22px; }
+
+  .incluso-card {
+    background: var(--bg);
+    padding: 32px;
+    transition: background 0.25s ease;
+  }
+  .incluso-card:hover { background: var(--card-bg); }
+  .incluso-card:hover .icon-badge { transform: scale(1.08) rotate(-4deg); background: var(--gradient); color: #fff; }
+
+  .incluso-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .incluso-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* QUOTE / STORY — own scroll-driven full-screen section */
+  .quote-section { position: relative; height: 220vh; }
+  .quote-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .quote-wrap {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bg-quote-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: Syne, sans-serif;
+    font-weight: 800;
+    font-size: clamp(9rem, 32vw, 34rem);
+    line-height: 1;
+    color: var(--card-bg);
+    -webkit-text-stroke: 1px var(--border);
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+  .story-block-solo {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 780px;
+    opacity: 0;
+    will-change: opacity, transform, filter;
+  }
+  .story-block-solo .icon { width: 40px; height: 40px; color: var(--accent); }
+  .story-block-solo .story-line-solo {
+    font-family: Syne, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    font-size: clamp(1.8rem, 5vw, 3.4rem);
+    color: #fff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bg-quote-mark, .story-block-solo { opacity: 1 !important; transform: none !important; filter: none !important; }
+  }
+
+  /* OUTROS TRABALHOS */
+  .outros-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .outro-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    aspect-ratio: 3 / 4;
+    display: block;
+    text-decoration: none;
+  }
+  .outro-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .outro-item:hover img { transform: scale(1.06); }
+  .outro-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.8) 100%);
+  }
+  .outro-item .outro-label {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    right: 12px;
+    z-index: 2;
+    color: #fff;
+  }
+  .outro-item .outro-label .cat-row { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+  .outro-item .outro-label .icon { width: 13px; height: 13px; color: var(--accent); }
+  .outro-item .outro-label .name { font-family: Syne, sans-serif; font-weight: 700; font-size: 15px; display: block; }
+  .outro-item .outro-label .cat { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #ccc; }
+
+  @media (max-width: 700px) {
+    .outros-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; }
+
+  .step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .step:first-child { border-top: 1px solid var(--border); }
+
+  .step .step-num {
+    font-family: Syne, sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+  }
+  .step:hover .step-num { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  .step .step-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .step .step-heading .icon { width: 19px; height: 19px; color: var(--accent); }
+  .step h3 { font-size: 20px; }
+  .step p { color: var(--text-muted); font-size: 14px; max-width: 480px; }
+
+  /* PRICE CARD */
+  .price-block {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .price-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gradient);
+    opacity: 0.06;
+  }
+  .price-card .price-value {
+    font-family: Syne, sans-serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    position: relative;
+  }
+  .price-card .price-note { color: var(--text-muted); font-size: 14px; margin: 8px 0 32px; position: relative; }
+  .price-card ul { list-style: none; position: relative; }
+  .price-card li {
+    font-size: 14px;
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .price-card li .icon { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+
+  .price-copy p { color: #ccc; font-size: 15px; margin-bottom: 16px; }
+  .price-copy strong { color: var(--text); }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; }
+  .faq-item {
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .faq-item h3 { font-size: 18px; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .faq-item p { color: var(--text-muted); font-size: 14px; max-width: 560px; }
+
+  /* FINAL CTA */
+  .final-cta {
+    text-align: center;
+    padding: 120px 24px;
+    border-top: 1px solid var(--border);
+    align-items: center;
+  }
+  .final-cta h2 { max-width: 100%; margin: 20px auto 40px; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  footer .social-links { display: flex; gap: 20px; }
+  footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  footer a .icon { width: 16px; height: 16px; }
+  footer a:hover { color: var(--text); transform: translateY(-2px); }
+
+  @media (max-width: 720px) {
+    header.hero { padding: 110px 20px 56px; }
+    .price-block { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 40px 1fr; gap: 16px; }
+    section { padding: 64px 0; }
+    .bg-quote-mark { font-size: clamp(7rem, 42vw, 16rem); }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .stats-row { grid-template-columns: 1fr; gap: 16px; text-align: left; }
+    .stat-label { margin-top: 4px; }
+    .hero-ctas { gap: 16px; margin-bottom: 48px; }
+    .incluso-card { padding: 24px; }
+    .price-card { padding: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-group">
+    <div class="logo">iury.art</div>
+  </div>
+  <a class="cta-mini" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20meu%20ensaio%20de%20formatura" target="_blank" rel="noopener">
+    <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
+    Chamar no Zap
+  </a>
+</nav>
+
+<main>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">TEMPORADA DE FORMATURA 2026</span>
+        <h1 class="hero-title">A colação dura 2h.<br>As fotos, <span class="gradient-text">pra sempre.</span></h1>
+        <p class="hero-sub">Ensaio individual de formatura em locação externa — sem pressa, sem pose engessada. Só você, curtindo o fechamento de um ciclo enorme, com direção leve pra sair natural em cada clique.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20meu%20ensaio%20de%20formatura" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
+            Vamo Fechar?
+          </a>
+          <a class="link-arrow" href="#galeria">Ver ensaios reais</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="stats-reveal" class="reveal">
+  <div class="wrap">
+    <div class="stats-arrange reveal-stagger">
+      <div class="stat-slide stat-primary">
+        <div class="stat-number" data-count="250" data-prefix="R$">R$0</div>
+        <div class="stat-label">Investimento por pessoa</div>
+      </div>
+      <div class="stat-slide stat-secondary-a">
+        <div class="stat-number" data-count="25">0</div>
+        <div class="stat-label">Fotos editadas incluídas</div>
+      </div>
+      <div class="stat-slide stat-secondary-b">
+        <div class="stat-number" data-count="5">0</div>
+        <div class="stat-label">Dias úteis para entrega</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="hscroll-wrap">
+  <div class="hscroll-sticky">
+    <div class="wrap hscroll-header reveal">
+      <span class="eyebrow">TRABALHO REAL</span>
+      <h2 style="margin-bottom:0;">Último ensaio que rolou</h2>
+    </div>
+    <div class="hscroll-track" id="hscrollTrack">
+      <div class="hscroll-item" data-idx="0">
+        <img src="imgs/giulia-59.webp" alt="Formanda de beca e capelo sorrindo em pier de madeira com montanhas ao fundo, ensaio de formatura em locação externa" loading="lazy" width="933" height="1400">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" fill="none"/><circle cx="12" cy="10.1" r="2.3"/></svg>Locação Externa</span>
+      </div>
+      <div class="hscroll-item" data-idx="1">
+        <img src="imgs/giulia-103.webp" alt="Formanda sorrindo ao ar livre com fundo verde e luz de tarde" loading="lazy" width="933" height="1400">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.9"/><path d="M12 3.5v2.3M12 18.2v2.3M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M3.5 12h2.3M18.2 12h2.3M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>Retrato Externo</span>
+      </div>
+      <div class="hscroll-item" data-idx="2">
+        <img src="imgs/giulia-10.webp" alt="Formanda rindo em cadeira de biblioteca com bolhas de sabão no ar" loading="lazy" width="933" height="1400">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v3.8M12 16.7v3.8M4.5 12h3.8M15.7 12h3.8M6.8 6.8l2.4 2.4M14.8 14.8l2.4 2.4M17.2 6.8l-2.4 2.4M9.2 14.8l-2.4 2.4"/></svg>Ensaio Criativo</span>
+      </div>
+      <div class="hscroll-item" data-idx="3">
+        <img src="imgs/giulia-7.webp" alt="Retrato próximo de formanda emocionada segurando diploma" loading="lazy" width="1400" height="933">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 19.5s-6.4-3.8-8.6-7.6C1.8 8.6 3 5.8 6 5.8c1.9 0 3.3 1.2 3.8 2.4.5-1.2 1.9-2.4 3.8-2.4 3 0 4.2 2.8 2.6 6.1-2.2 3.8-8.2 7.6-8.2 7.6Z"/></svg>Retrato Íntimo</span>
+      </div>
+      <div class="hscroll-item" data-idx="4">
+        <img src="imgs/giulia-14.webp" alt="Formanda jogando capelo pra cima em biblioteca, comemorando" loading="lazy" width="1400" height="933">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg>Celebração</span>
+      </div>
+      <div class="hscroll-item" data-idx="5">
+        <img src="imgs/giulia-3.webp" alt="Formanda segurando placa dourada escrito Sonho Realizado" loading="lazy" width="933" height="1400">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.2l2.1 5 5.4.5-4.1 3.6 1.2 5.4L12 14.9 7.4 17.7l1.2-5.4-4.1-3.6 5.4-.5Z"/></svg>Retrato Icônico</span>
+      </div>
+      <div class="hscroll-item" data-idx="6">
+        <img src="imgs/giulia-97.webp" alt="Formanda de beca segurando diploma vermelho em locação externa com montanhas rochosas ao fundo" loading="lazy" width="933" height="1400">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z"/><circle cx="12" cy="10.1" r="2.3"/></svg>Locação Externa</span>
+      </div>
+      <div class="hscroll-item" data-idx="7">
+        <img src="imgs/giulia-13.webp" alt="Formanda erguendo as mãos em pose vitoriosa com diploma e canudo, celebrando a formatura" loading="lazy" width="933" height="1400">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Momento da Conquista</span>
+      </div>
+    </div>
+    <div class="hscroll-dots" id="hscrollDots"></div>
+  </div>
+</section>
+
+<section class="quote-section" id="citacao" aria-label="Citação">
+  <div class="quote-sticky">
+    <div class="wrap quote-wrap">
+      <span class="bg-quote-mark" aria-hidden="true">&rdquo;</span>
+      <div class="story-block-solo">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6C6.9 6 5 8.1 5 10.6c0 2.3 1.8 4.1 4 4.1.4 0 .8-.1 1.1-.2-.5 2.3-2.4 4-4.8 4.3v2.1c3.9-.4 6.7-3.5 6.7-8V10.6C12 8.1 11.6 6 9.5 6Zm9 0c-2.6 0-4.5 2.1-4.5 4.6 0 2.3 1.8 4.1 4 4.1.4 0 .8-.1 1.1-.2-.5 2.3-2.4 4-4.8 4.3v2.1c3.9-.4 6.7-3.5 6.7-8V10.6C21 8.1 20.6 6 18.5 6Z"/></svg>
+        <p class="story-line-solo">A foto que todo pai quer botar num quadro na sala.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="snap-section" id="prova-social" aria-labelledby="prova-social-heading">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="margin-top: 56px;">FORA DA FORMATURA</span>
+    <h2 id="prova-social-heading" class="reveal" style="font-size: clamp(1.4rem, 3vw, 2rem); margin: 16px 0 8px;">Outros trabalhos, no Behance</h2>
+    <p class="reveal" style="color: var(--text-muted); font-size: 14px; margin-bottom: 8px; max-width: 480px;">Uma prévia de outros projetos autorais — a galeria completa de cada um tá lá.</p>
+    <div class="outros-grid reveal-stagger">
+      <a class="outro-item" href="https://www.behance.net/gallery/124162717/RIO" target="_blank" rel="noopener">
+        <img src="imgs/outro-rio.webp" alt="Prévia do projeto fotográfico RIO." loading="lazy" width="1000" height="666">
+        <span class="outro-label">
+          <span class="cat-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2A1.5 1.5 0 0 1 6 6.7h2l1.3-1.9a1 1 0 0 1 .8-.4h4.1a1 1 0 0 1 .9.5L16 6.7h2a1.5 1.5 0 0 1 1.5 1.5v8.3A1.5 1.5 0 0 1 18 18H6a1.5 1.5 0 0 1-1.5-1.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg></span>
+          <span class="name">RIO.</span><span class="cat">Fotografia</span>
+        </span>
+      </a>
+      <a class="outro-item" href="https://www.behance.net/gallery/219338981/stream" target="_blank" rel="noopener">
+        <img src="imgs/outro-stream.webp" alt="Prévia do projeto fotográfico Stream" loading="lazy" width="666" height="1000">
+        <span class="outro-label">
+          <span class="cat-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2A1.5 1.5 0 0 1 6 6.7h2l1.3-1.9a1 1 0 0 1 .8-.4h4.1a1 1 0 0 1 .9.5L16 6.7h2a1.5 1.5 0 0 1 1.5 1.5v8.3A1.5 1.5 0 0 1 18 18H6a1.5 1.5 0 0 1-1.5-1.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg></span>
+          <span class="name">Stream</span><span class="cat">Fotografia</span>
+        </span>
+      </a>
+      <a class="outro-item" href="https://www.behance.net/gallery/124153307/Smile" target="_blank" rel="noopener">
+        <img src="imgs/outro-smile.webp" alt="Prévia do projeto de branding Smile" loading="lazy" width="1000" height="562">
+        <span class="outro-label">
+          <span class="cat-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2a8.8 8.8 0 1 0 0 17.6c1.1 0 1.9-.9 1.9-2 0-.5-.2-1-.5-1.4-.3-.4-.5-.9-.5-1.4 0-1.1.9-2 2-2h2.1a3.7 3.7 0 0 0 3.7-3.7c0-3.9-3.9-7.1-8.7-7.1Z"/><circle cx="7.6" cy="10.8" r="1.1" fill="currentColor" stroke="none"/><circle cx="9.6" cy="7.2" r="1.1" fill="currentColor" stroke="none"/><circle cx="14.2" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="name">Smile</span><span class="cat">Design</span>
+        </span>
+      </a>
+      <a class="outro-item" href="https://instagram.com/1ury.art" target="_blank" rel="noopener">
+        <img src="imgs/outro-rn.webp" alt="Prévia do clipe musical do artista RN" loading="lazy" width="666" height="1000">
+        <span class="outro-label">
+          <span class="cat-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.8" width="18" height="14.4" rx="2.2"/><path d="M8.2 4.8v14.4M15.8 4.8v14.4"/><path d="M3 9h5.2M15.8 9H21M3 14.6h5.2M15.8 14.6H21"/></svg></span>
+          <span class="name">RN</span><span class="cat">Clipe Musical</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="incluso" class="snap-section">
+  <div class="wrap">
+    <span class="eyebrow reveal">O QUE ESTÁ INCLUSO</span>
+    <h2 class="reveal">Tudo pensado pra você só se preocupar em sorrir</h2>
+    <div class="incluso-grid reveal-stagger">
+      <div class="incluso-card">
+        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2A1.5 1.5 0 0 1 6 6.7h2l1.3-1.9a1 1 0 0 1 .8-.4h4.1a1 1 0 0 1 .9.5L16 6.7h2a1.5 1.5 0 0 1 1.5 1.5v8.3A1.5 1.5 0 0 1 18 18H6a1.5 1.5 0 0 1-1.5-1.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg></div>
+        <h3>Ensaio Individual</h3>
+        <p>Sessão só sua, em locação externa combinada com antecedência — sem correria, sem dividir horário.</p>
+      </div>
+      <div class="incluso-card">
+        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="12" height="12" rx="2"/><path d="M8 20.5h9a2 2 0 0 0 2-2V9.5"/><path d="M3.5 12.7l2.8-3.1 2.3 2.6L12 8.2l3.5 4.5"/><circle cx="7.3" cy="7.3" r="1"/></svg></div>
+        <h3>25 Fotos Editadas</h3>
+        <p>Você escolhe as 25 favoritas no próprio dia. São essas que recebem tratamento e color grading profissional.</p>
+      </div>
+      <div class="incluso-card">
+        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.5s-6.4-3.8-8.6-7.6C1.8 8.6 3 5.8 6 5.8c1.9 0 3.3 1.2 3.8 2.4.5-1.2 1.9-2.4 3.8-2.4 3 0 4.2 2.8 2.6 6.1-2.2 3.8-8.2 7.6-8.2 7.6Z"/></svg></div>
+        <h3>Referências Suas</h3>
+        <p>Pode trazer referências de poses e estilo. Sem fotos engessadas — o ensaio é feito do seu jeito.</p>
+      </div>
+      <div class="incluso-card">
+        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg></div>
+        <h3>Entrega Rápida</h3>
+        <p>Fotos finais em até 5 dias úteis, em alta qualidade, via link do Google Drive.</p>
+      </div>
+      <div class="incluso-card">
+        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M12 8.2v7.6M8.2 12h7.6"/></svg></div>
+        <h3>Fotos Extras</h3>
+        <p>Curtiu mais de 25? Dá pra adquirir fotos extras da sessão à parte.</p>
+      </div>
+      <div class="incluso-card">
+        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3 9.5h18"/><path d="M6.5 14.5h4"/></svg></div>
+        <h3>Pagamento Facilitado</h3>
+        <p>Cartão de crédito, débito ou Pix. Parcelamento disponível no cartão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="snap-section">
+  <div class="wrap">
+    <span class="eyebrow reveal">COMO FUNCIONA</span>
+    <h2 class="reveal">Do agendamento à entrega</h2>
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-heading"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.2" width="16" height="14.8" rx="2.2"/><path d="M4 9.8h16"/><path d="M8.3 3v3.6M15.7 3v3.6"/><circle cx="8.6" cy="14" r="0.9" fill="currentColor" stroke="none"/><circle cx="12" cy="14" r="0.9" fill="currentColor" stroke="none"/><circle cx="15.4" cy="14" r="0.9" fill="currentColor" stroke="none"/></svg><h3>Agenda</h3></div>
+          <p>Chama no WhatsApp, combina data, horário e local do ensaio.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-heading"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2A1.5 1.5 0 0 1 6 6.7h2l1.3-1.9a1 1 0 0 1 .8-.4h4.1a1 1 0 0 1 .9.5L16 6.7h2a1.5 1.5 0 0 1 1.5 1.5v8.3A1.5 1.5 0 0 1 18 18H6a1.5 1.5 0 0 1-1.5-1.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg><h3>Ensaio</h3></div>
+          <p>Sessão individual no local combinado — traz suas referências de pose e estilo.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-heading"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3.2"/><path d="M7.8 12.3l2.6 2.6 5.6-6.2"/></svg><h3>Seleção</h3></div>
+          <p>Ainda no dia, você escolhe as 25 fotos que vão receber edição e tratamento.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-heading"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 10l7.2 2.7L13 20l8-17Z"/><path d="M10.2 12.7 15.5 7.4"/></svg><h3>Entrega</h3></div>
+          <p>Em até 5 dias úteis, tudo editado chega em alta qualidade por um link do Drive.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="snap-section">
+  <div class="wrap">
+    <div class="price-block">
+      <div class="price-card reveal">
+        <div class="price-value">R$250</div>
+        <div class="price-note">por pessoa · pagamento facilitado</div>
+        <ul>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" fill="none"/><circle cx="12" cy="10.1" r="2.3"/></svg>Ensaio individual em locação externa</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="12" height="12" rx="2"/><path d="M8 20.5h9a2 2 0 0 0 2-2V9.5"/><path d="M3.5 12.7l2.8-3.1 2.3 2.6L12 8.2l3.5 4.5"/><circle cx="7.3" cy="7.3" r="1"/></svg>25 fotos selecionadas e editadas</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg>Entrega em até 5 dias úteis</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M12 8.2v7.6M8.2 12h7.6"/></svg>Fotos extras disponíveis à parte</li>
+        </ul>
+      </div>
+      <div class="price-copy reveal">
+        <span class="eyebrow">POR QUE FECHAR COMIGO</span>
+        <h2 style="margin: 16px 0 24px; font-size: clamp(1.6rem, 3vw, 2.2rem);">Não é só mais um ensaio de formatura</h2>
+        <p>Quem clica é quem edita. <strong>Sem terceirizar</strong> — do enquadramento no dia do ensaio ao color grading final, tudo passa pela minha mão.</p>
+        <p>Você escolhe o local, traz as referências, e eu cuido do resto: luz, direção de pose e o tratamento que faz a foto parecer capa de revista, não retrato de carteirinha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="snap-section" id="faq" aria-labelledby="faq-heading">
+  <div class="wrap">
+    <span class="eyebrow reveal">PERGUNTAS FREQUENTES</span>
+    <h2 id="faq-heading" class="reveal">Antes de chamar no zap</h2>
+    <div class="faq-list reveal-stagger">
+      <div class="faq-item">
+        <h3>E se chover ou o tempo virar no dia?</h3>
+        <p>Reagendamos sem custo, dentro do prazo combinado. O clima não pode estragar seu ensaio.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Posso levar alguém comigo?</h3>
+        <p>O ensaio é individual, mas pode trazer uma pessoa de apoio — só não entra nas fotos.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Quanto tempo dura o ensaio?</h3>
+        <p>Em torno de 1h a 1h30, sem pressa, com tempo pra trocar de pose e testar ideias.</p>
+      </div>
+      <div class="faq-item">
+        <h3>E se eu não gostar de nenhuma foto na seleção?</h3>
+        <p>A seleção acontece comigo, no próprio dia — a gente escolhe as melhores juntos antes de você ir embora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta snap-section">
+  <div class="reveal">
+    <span class="eyebrow" style="justify-content:center;">FORMATURA 2026</span>
+    <h2>Vamo marcar<br>seu <span class="gradient-text">ensaio</span>?</h2>
+    <a class="btn-primary" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20meu%20ensaio%20de%20formatura" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
+      Chamar no WhatsApp
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>© 2026 Iury Senck. Todos os direitos reservados.</span>
+  <div class="social-links">
+    <a href="https://wa.me/5521972458143" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
+      +55 21 97245-8143
+    </a>
+    <a href="https://instagram.com/1ury.art" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a href="https://behance.net/iurysenck" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
+      Behance
+    </a>
+    <a href="mailto:iury.senck7@gmail.com">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.2" width="18" height="13.6" rx="2.2"/><path d="M3.5 6.2 12 12.8l8.5-6.6"/></svg>
+      Email
+    </a>
+  </div>
+</footer>
+
+<script>
+  // Scroll-reveal via IntersectionObserver
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => io.observe(el));
+    // Safety net: guarantee content is never stuck invisible if IO fails to fire for any reason
+    window.addEventListener('load', () => {
+      setTimeout(() => revealEls.forEach(el => el.classList.add('is-visible')), 2000);
+    });
+  }
+
+  // Count-up animation for the stats section — same IO-based reveal pattern
+  // as above, just with a numeric tween instead of a fade class.
+  const countEls = document.querySelectorAll('.stat-number[data-count]');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el) {
+    el.dataset.counted = '1';
+    const target = parseInt(el.dataset.count, 10);
+    const prefix = el.dataset.prefix || '';
+    if (prefersReducedMotion) { el.textContent = prefix + target; return; }
+    const duration = 900;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = prefix + Math.round(target * eased);
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if (countEls.length) {
+    if (!('IntersectionObserver' in window)) {
+      countEls.forEach(countUp);
+    } else {
+      const countIo = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            countUp(entry.target);
+            countIo.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      countEls.forEach(el => countIo.observe(el));
+      window.addEventListener('load', () => {
+        setTimeout(() => countEls.forEach(el => { if (!el.dataset.counted) countUp(el); }), 2000);
+      });
+    }
+  }
+
+  function smoothstep(t) {
+    t = Math.min(1, Math.max(0, t));
+    return t * t * (3 - 2 * t);
+  }
+
+  // Deterministic pseudo-random 0..1, stable across frames (no Math.random jitter)
+  function pseudo(i, seed) {
+    const v = Math.sin(i * 12.9898 + seed * 78.233) * 43758.5453;
+    return v - Math.floor(v);
+  }
+
+  // Pinned scroll gallery: active photo centered, passed photos pile up to the left
+  const hscrollWrap = document.getElementById('galeria');
+  const hscrollTrack = document.getElementById('hscrollTrack');
+  const dotsWrap = document.getElementById('hscrollDots');
+  const hscrollItems = document.querySelectorAll('.hscroll-item');
+  const itemCount = hscrollItems.length;
+  for (let i = 0; i < itemCount; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dotsWrap.appendChild(dot);
+  }
+  const dots = dotsWrap.querySelectorAll('.dot');
+
+  function measure() { /* no-op: positions are computed from container size each frame */ }
+
+  const COLLAGE_SPREAD_X = 0.42; // collage stays within this fraction of width from center — bounded, not off-screen
+  const COLLAGE_SPREAD_Y = 0.32;
+  const COLLAGE_SCALE = 0.34;
+
+  function updateHscroll() {
+    const trackW = hscrollTrack.clientWidth;
+    const trackH = hscrollTrack.clientHeight;
+    const rect = hscrollWrap.getBoundingClientRect();
+    const scrollableDistance = hscrollWrap.offsetHeight - window.innerHeight;
+    let progress = scrollableDistance > 0 ? -rect.top / scrollableDistance : 0;
+    progress = Math.min(1, Math.max(0, progress));
+
+    // itemCount (not -1): every photo, including the last, gets room to fully
+    // settle into its collage slot exactly by the end of the section's scroll.
+    const activeFloat = progress * itemCount;
+
+    hscrollItems.forEach((item, i) => {
+      const d = activeFloat - i; // <0 not yet arrived, ~0 centered/active, >0 receding into its final collage slot
+      let x = 0, y = 0, rotate = 0, scale = 1, opacity = 1;
+
+      if (d <= -1) {
+        opacity = 0;
+        x = trackW * 0.5;
+        scale = 0.85;
+      } else if (d < 0) {
+        // entrance window matches the outgoing card's [0,1) window exactly (d+1),
+        // so incoming/outgoing crossfade in lockstep instead of leaving a dead gap
+        const t = smoothstep(d + 1);
+        opacity = t;
+        x = trackW * 0.5 * (1 - t);
+        scale = 0.85 + 0.15 * t;
+      } else {
+        // Final-position (collage) animation starts the instant the card
+        // begins receding to the left (d = 0) — one continuous move straight
+        // into its bounded scattered slot, not a neat pile now and a separate
+        // re-scatter later.
+        const t = smoothstep(Math.min(d, 1));
+        const collageX = (pseudo(i, 1) - 0.5) * trackW * COLLAGE_SPREAD_X;
+        const collageY = (pseudo(i, 2) - 0.5) * trackH * COLLAGE_SPREAD_Y;
+        const collageRotate = (pseudo(i, 3) - 0.5) * 26;
+        x = collageX * t;
+        y = collageY * t;
+        rotate = collageRotate * t;
+        scale = 1 - (1 - COLLAGE_SCALE) * t;
+        // gentle dip-and-recover so the handoff reads as a fade, not a hard cut
+        opacity = 1 - 0.45 * Math.sin(Math.PI * t);
+      }
+
+      // continuous depth ordering: whichever card is closest to its own "active"
+      // moment (|d| near 0) sits frontmost, so outgoing/incoming swap front-back
+      // smoothly right at the midpoint of the crossfade instead of popping.
+      const z = 1000 - Math.abs(d) * 50;
+
+      item.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${rotate}deg) scale(${scale})`;
+      item.style.opacity = opacity;
+      item.style.zIndex = Math.round(z);
+      const tag = item.querySelector('.tag');
+      if (tag) tag.style.opacity = d >= -0.15 && d < 0.5 ? 1 : 0;
+    });
+
+    const activeIdx = Math.min(itemCount - 1, Math.max(0, Math.round(activeFloat)));
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+  }
+
+  // Scroll-driven quote reveal — tied 1:1 to scroll position (no CSS transition
+  // duration involved, so it can't lag behind or feel like a canned auto-play).
+  const quoteWrap = document.getElementById('citacao');
+  const quoteMark = quoteWrap.querySelector('.bg-quote-mark');
+  const quoteBlock = quoteWrap.querySelector('.story-block-solo');
+
+  function updateQuote() {
+    const rect = quoteWrap.getBoundingClientRect();
+    const scrollableDistance = quoteWrap.offsetHeight - window.innerHeight;
+    let progress = scrollableDistance > 0 ? -rect.top / scrollableDistance : 0;
+    progress = Math.min(1, Math.max(0, progress));
+
+    // Text finishes revealing by 30% of the section's scroll, leaving the
+    // rest as unhurried hold/reading time before the next section arrives.
+    const textT = smoothstep(progress / 0.3);
+    // The background mark starts a touch later and finishes with the text —
+    // it drifts in behind the text for a slight parallax-style depth cue.
+    const markT = smoothstep((progress - 0.05) / 0.35);
+
+    quoteBlock.style.opacity = textT;
+    quoteBlock.style.transform = `translateY(${(1 - textT) * 40}px) scale(${0.9 + 0.1 * textT})`;
+    quoteBlock.style.filter = `blur(${(1 - textT) * 10}px)`;
+
+    quoteMark.style.opacity = markT;
+    quoteMark.style.transform = `translate(-50%, -55%) scale(${0.8 + 0.2 * markT})`;
+  }
+
+  // Scroll-driven full-screen stats reveal (price / photo count / delivery)
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => { updateHscroll(); updateQuote(); ticking = false; });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { measure(); updateHscroll(); updateQuote(); });
+  window.addEventListener('load', () => { measure(); updateHscroll(); updateQuote(); });
+  measure();
+  updateHscroll();
+  updateQuote();
+
+  // Double-tap-like heart pop on gallery item click
+  document.querySelectorAll('.hscroll-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const pop = document.createElement('div');
+      pop.className = 'heart-pop';
+      pop.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 19.5s-6.4-3.8-8.6-7.6C1.8 8.6 3 5.8 6 5.8c1.9 0 3.3 1.2 3.8 2.4.5-1.2 1.9-2.4 3.8-2.4 3 0 4.2 2.8 2.6 6.1-2.2 3.8-8.2 7.6-8.2 7.6Z"/></svg>';
+      item.appendChild(pop);
+      setTimeout(() => pop.remove(), 750);
+    });
+  });
+</script>
+
+</body>
+</html>
