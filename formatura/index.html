@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ensaio de Formatura | Iury Senck</title>
-<meta name="description" content="Ensaio individual de formatura em locação externa. R$250, 25 fotos editadas, entrega em até 5 dias úteis.">
+<title>Pacotes de Formatura | Iury Senck</title>
+<meta name="description" content="Ensaio de formatura em 3 formatos: só externa, só estúdio ou os dois juntos. Compare preços e escolha o seu.">
 
 <link rel="canonical" href="https://iury.art/formatura/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://iury.art/formatura/">
-<meta property="og:title" content="Ensaio de Formatura | Iury Senck">
-<meta property="og:description" content="Ensaio individual de formatura em locação externa. R$250, 25 fotos editadas, entrega em até 5 dias úteis.">
+<meta property="og:title" content="Pacotes de Formatura | Iury Senck">
+<meta property="og:description" content="Ensaio de formatura em 3 formatos: só externa, só estúdio ou os dois juntos. Compare preços e escolha o seu.">
 <meta property="og:image" content="https://iury.art/formatura/imgs/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ensaio de Formatura | Iury Senck">
-<meta name="twitter:description" content="Ensaio individual de formatura em locação externa. R$250, 25 fotos editadas, entrega em até 5 dias úteis.">
+<meta name="twitter:title" content="Pacotes de Formatura | Iury Senck">
+<meta name="twitter:description" content="Ensaio de formatura em 3 formatos: só externa, só estúdio ou os dois juntos. Compare preços e escolha o seu.">
 <meta name="twitter:image" content="https://iury.art/formatura/imgs/og-image.jpg">
 
 <script type="application/ld+json">
@@ -31,11 +31,11 @@
     "url": "https://iury.art"
   },
   "areaServed": "Rio de Janeiro, RJ",
-  "offers": {
-    "@type": "Offer",
-    "price": "250",
-    "priceCurrency": "BRL"
-  }
+  "offers": [
+    { "@type": "Offer", "name": "Só Externa", "price": "350", "priceCurrency": "BRL" },
+    { "@type": "Offer", "name": "Só Estúdio", "price": "400", "priceCurrency": "BRL" },
+    { "@type": "Offer", "name": "Externa + Estúdio", "price": "650", "priceCurrency": "BRL" }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -45,18 +45,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "E se chover ou o tempo virar no dia?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Reagendamos sem custo, dentro do prazo combinado. O clima não pode estragar seu ensaio." }
+      "name": "Qual pacote é melhor pra mim?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Quer o clima ao ar livre? Só externa. Prefere não depender do tempo e ter fundo neutro à escolha? Só estúdio. Quer as duas experiências e mais fotos no total? O combo compensa." }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso pagar parcelado?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim, no cartão de crédito, com acréscimo da maquininha. À vista no Pix, débito ou dinheiro, sem acréscimo — e ainda com 10% de desconto no Pix." }
     },
     {
       "@type": "Question",
       "name": "Posso levar alguém comigo?",
       "acceptedAnswer": { "@type": "Answer", "text": "O ensaio é individual, mas pode trazer uma pessoa de apoio — só não entra nas fotos." }
-    },
-    {
-      "@type": "Question",
-      "name": "Quanto tempo dura o ensaio?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Em torno de 1h a 1h30, sem pressa, com tempo pra trocar de pose e testar ideias." }
     },
     {
       "@type": "Question",
@@ -232,7 +232,7 @@
     margin-bottom: 40px;
   }
 
-  .hero-ctas { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; margin-bottom: 72px; }
+  .hero-ctas { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
 
   .btn-primary {
     display: inline-flex;
@@ -351,7 +351,7 @@
   section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 16px 0 48px; max-width: 640px; }
 
   /* STACKED SCROLL GALLERY */
-  .hscroll-wrap { position: relative; height: 400vh; }
+  .hscroll-wrap { position: relative; height: 280vh; }
   .hscroll-sticky {
     position: sticky;
     top: 0;
@@ -453,7 +453,7 @@
   .hscroll-dots .dot.active { background: var(--gradient); transform: scale(1.5); }
 
   @media (max-width: 720px) {
-    .hscroll-wrap { height: 340vh; }
+    .hscroll-wrap { height: 240vh; }
     .hscroll-item { width: min(64vw, 300px); }
   }
 
@@ -669,6 +669,72 @@
   .price-copy p { color: #ccc; font-size: 15px; margin-bottom: 16px; }
   .price-copy strong { color: var(--text); }
 
+  /* PRICING GRID (3 packages) */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .pricing-grid .price-card { display: flex; flex-direction: column; padding: 40px 32px; }
+  .pricing-grid .price-fit { color: #ccc; font-size: 13px; line-height: 1.5; margin: 10px 0 20px; position: relative; }
+  .pricing-grid .price-card .price-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .pricing-grid .price-card .price-value { font-size: clamp(2.4rem, 4.5vw, 3.2rem); }
+  .price-strike { color: var(--text-muted); font-size: 13px; position: relative; }
+  .price-strike s { color: var(--text-muted); }
+  .pricing-grid .price-card ul { flex: 1; margin-bottom: 28px; }
+  .pricing-grid .price-card .btn-primary { position: relative; justify-content: center; width: 100%; }
+  .price-card.featured {
+    border-color: var(--accent);
+    transform: scale(1.03);
+  }
+  .price-card.featured::before { opacity: 0.12; }
+  .price-card.featured .badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: var(--gradient);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  /* PAYMENT TERMS */
+  .payment-terms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .payment-terms .payment-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .payment-terms .payment-item .icon-badge { width: 40px; height: 40px; margin-bottom: 12px; }
+  .payment-terms h4 { font-size: 15px; margin-bottom: 6px; }
+  .payment-terms p { color: var(--text-muted); font-size: 13px; }
+
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .price-card.featured { transform: none; order: -1; }
+    .payment-terms { grid-template-columns: 1fr; }
+  }
+
   /* FAQ */
   .faq-list { max-width: 760px; }
   .faq-item {
@@ -699,10 +765,11 @@
     font-size: 13px;
     color: var(--text-muted);
   }
-  footer .social-links { display: flex; gap: 20px; }
+  footer .social-links { display: flex; gap: 20px; flex-wrap: wrap; }
   footer a {
     color: var(--text-muted);
     text-decoration: none;
+    white-space: nowrap;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -736,7 +803,7 @@
     <div class="logo">iury.art</div>
   </div>
   <a class="cta-mini" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20meu%20ensaio%20de%20formatura" target="_blank" rel="noopener">
-    <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
+    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
     Chamar no Zap
   </a>
 </nav>
@@ -747,230 +814,141 @@
   <div class="hero-inner">
     <div class="hero-grid">
       <div class="reveal">
-        <span class="eyebrow">TEMPORADA DE FORMATURA 2026</span>
+        <span class="eyebrow">TEMPORADA DE FORMATURA <span class="dyn-year">2026</span></span>
         <h1 class="hero-title">A colação dura 2h.<br>As fotos, <span class="gradient-text">pra sempre.</span></h1>
-        <p class="hero-sub">Ensaio individual de formatura em locação externa — sem pressa, sem pose engessada. Só você, curtindo o fechamento de um ciclo enorme, com direção leve pra sair natural em cada clique.</p>
+        <p class="hero-sub">Daqui a 10 anos ninguém lembra do discurso do paraninfo. A foto do abraço apertado, do diploma na mão e do choro de orgulho no meio da festa, essa fica. A gente registra o momento, não o formato.</p>
         <div class="hero-ctas">
-          <a class="btn-primary" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20meu%20ensaio%20de%20formatura" target="_blank" rel="noopener">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
-            Vamo Fechar?
+          <a class="btn-primary" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20garantir%20minhas%20fotos%20de%20formatura" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
+            Garantir minhas fotos
           </a>
-          <a class="link-arrow" href="#galeria">Ver ensaios reais</a>
+          <a class="link-arrow" href="#pacotes">Ver como funciona</a>
         </div>
+        <p style="color: var(--text-muted); font-size: 13px;">Promoção de temporada sempre ativa. Quanto antes fechar, mais opção de data.</p>
       </div>
     </div>
   </div>
 </header>
 
-<section id="stats-reveal" class="reveal">
-  <div class="wrap">
-    <div class="stats-arrange reveal-stagger">
-      <div class="stat-slide stat-primary">
-        <div class="stat-number" data-count="250" data-prefix="R$">R$0</div>
-        <div class="stat-label">Investimento por pessoa</div>
-      </div>
-      <div class="stat-slide stat-secondary-a">
-        <div class="stat-number" data-count="25">0</div>
-        <div class="stat-label">Fotos editadas incluídas</div>
-      </div>
-      <div class="stat-slide stat-secondary-b">
-        <div class="stat-number" data-count="5">0</div>
-        <div class="stat-label">Dias úteis para entrega</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="galeria" class="hscroll-wrap">
   <div class="hscroll-sticky">
     <div class="wrap hscroll-header reveal">
-      <span class="eyebrow">TRABALHO REAL</span>
-      <h2 style="margin-bottom:0;">Último ensaio que rolou</h2>
+      <span class="eyebrow">EXTERNA + ESTÚDIO</span>
+      <h2 style="margin-bottom:0;">Últimos ensaios que rolaram</h2>
     </div>
     <div class="hscroll-track" id="hscrollTrack">
       <div class="hscroll-item" data-idx="0">
         <img src="/formatura/imgs/giulia-59.webp" alt="Formanda de beca e capelo sorrindo em pier de madeira com montanhas ao fundo, ensaio de formatura em locação externa" width="933" height="1400">
-        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" fill="none"/><circle cx="12" cy="10.1" r="2.3"/></svg>Locação Externa</span>
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" fill="none"/><circle cx="12" cy="10.1" r="2.3"/></svg>Externa</span>
       </div>
       <div class="hscroll-item" data-idx="1">
-        <img src="/formatura/imgs/giulia-103.webp" alt="Formanda sorrindo ao ar livre com fundo verde e luz de tarde" width="933" height="1400">
-        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.9"/><path d="M12 3.5v2.3M12 18.2v2.3M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M3.5 12h2.3M18.2 12h2.3M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>Retrato Externo</span>
+        <img src="/formatura/imgs/rodrigo-9.webp" alt="Formando de beca e capelo em retrato de perfil, luz dramática, fundo branco em estúdio" width="933" height="1400">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/></svg>Estúdio</span>
       </div>
       <div class="hscroll-item" data-idx="2">
-        <img src="/formatura/imgs/giulia-10.webp" alt="Formanda rindo em cadeira de biblioteca com bolhas de sabão no ar" width="933" height="1400">
-        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v3.8M12 16.7v3.8M4.5 12h3.8M15.7 12h3.8M6.8 6.8l2.4 2.4M14.8 14.8l2.4 2.4M17.2 6.8l-2.4 2.4M9.2 14.8l-2.4 2.4"/></svg>Ensaio Criativo</span>
+        <img src="/formatura/imgs/giulia-7.webp" alt="Retrato próximo de formanda emocionada segurando diploma, ensaio externo" width="1400" height="933">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 19.5s-6.4-3.8-8.6-7.6C1.8 8.6 3 5.8 6 5.8c1.9 0 3.3 1.2 3.8 2.4.5-1.2 1.9-2.4 3.8-2.4 3 0 4.2 2.8 2.6 6.1-2.2 3.8-8.2 7.6-8.2 7.6Z"/></svg>Externa</span>
       </div>
       <div class="hscroll-item" data-idx="3">
-        <img src="/formatura/imgs/giulia-7.webp" alt="Retrato próximo de formanda emocionada segurando diploma" width="1400" height="933">
-        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 19.5s-6.4-3.8-8.6-7.6C1.8 8.6 3 5.8 6 5.8c1.9 0 3.3 1.2 3.8 2.4.5-1.2 1.9-2.4 3.8-2.4 3 0 4.2 2.8 2.6 6.1-2.2 3.8-8.2 7.6-8.2 7.6Z"/></svg>Retrato Íntimo</span>
+        <img src="/formatura/imgs/giulia-103.webp" alt="Formanda sorrindo ao ar livre com fundo verde e luz de tarde, ensaio externo" width="933" height="1400">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.9"/><path d="M12 3.5v2.3M12 18.2v2.3M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M3.5 12h2.3M18.2 12h2.3M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>Externa</span>
       </div>
       <div class="hscroll-item" data-idx="4">
-        <img src="/formatura/imgs/giulia-14.webp" alt="Formanda jogando capelo pra cima em biblioteca, comemorando" width="1400" height="933">
-        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg>Celebração</span>
+        <img src="/formatura/imgs/rodrigo-26.webp" alt="Formando comemorando com amigos e diploma em estúdio com fundo preto" width="1400" height="933">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg>Estúdio</span>
       </div>
       <div class="hscroll-item" data-idx="5">
-        <img src="/formatura/imgs/giulia-3.webp" alt="Formanda segurando placa dourada escrito Sonho Realizado" width="933" height="1400">
-        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.2l2.1 5 5.4.5-4.1 3.6 1.2 5.4L12 14.9 7.4 17.7l1.2-5.4-4.1-3.6 5.4-.5Z"/></svg>Retrato Icônico</span>
+        <img src="/formatura/imgs/giulia-14.webp" alt="Formanda jogando capelo pra cima em biblioteca, comemorando ensaio externo" width="1400" height="933">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.9"/><path d="M12 3.5v2.3M12 18.2v2.3M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M3.5 12h2.3M18.2 12h2.3M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>Externa</span>
       </div>
       <div class="hscroll-item" data-idx="6">
-        <img src="/formatura/imgs/giulia-97.webp" alt="Formanda de beca segurando diploma vermelho em locação externa com montanhas rochosas ao fundo" width="933" height="1400">
-        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z"/><circle cx="12" cy="10.1" r="2.3"/></svg>Locação Externa</span>
+        <img src="/formatura/imgs/giulia-10.webp" alt="Formanda rindo em cadeira de biblioteca com bolhas de sabão no ar, ensaio externo" width="933" height="1400">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v3.8M12 16.7v3.8M4.5 12h3.8M15.7 12h3.8M6.8 6.8l2.4 2.4M14.8 14.8l2.4 2.4M17.2 6.8l-2.4 2.4M9.2 14.8l-2.4 2.4"/></svg>Externa</span>
       </div>
       <div class="hscroll-item" data-idx="7">
-        <img src="/formatura/imgs/giulia-13.webp" alt="Formanda erguendo as mãos em pose vitoriosa com diploma e canudo, celebrando a formatura" width="933" height="1400">
-        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Momento da Conquista</span>
+        <img src="/formatura/imgs/rodrigo-2.webp" alt="Mãe ajeitando o capelo do formando, momento emocionado em estúdio com fundo preto" width="933" height="1400">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z"/><circle cx="12" cy="10.1" r="2.3"/></svg>Estúdio</span>
+      </div>
+      <div class="hscroll-item" data-idx="8">
+        <img src="/formatura/imgs/giulia-13.webp" alt="Formanda erguendo as mãos em pose vitoriosa com diploma e canudo, celebrando a formatura ao ar livre" width="933" height="1400">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Externa</span>
+      </div>
+      <div class="hscroll-item" data-idx="9">
+        <img src="/formatura/imgs/rodrigo-318.webp" alt="Formando de braços cruzados, retrato executivo em estúdio com fundo branco" width="933" height="1400">
+        <span class="tag"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.2l2.1 5 5.4.5-4.1 3.6 1.2 5.4L12 14.9 7.4 17.7l1.2-5.4-4.1-3.6 5.4-.5Z"/></svg>Estúdio</span>
       </div>
     </div>
     <div class="hscroll-dots" id="hscrollDots"></div>
   </div>
 </section>
 
-<section class="quote-section" id="citacao" aria-label="Citação">
-  <div class="quote-sticky">
-    <div class="wrap quote-wrap">
-      <span class="bg-quote-mark" aria-hidden="true">&rdquo;</span>
-      <div class="story-block-solo">
-        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6C6.9 6 5 8.1 5 10.6c0 2.3 1.8 4.1 4 4.1.4 0 .8-.1 1.1-.2-.5 2.3-2.4 4-4.8 4.3v2.1c3.9-.4 6.7-3.5 6.7-8V10.6C12 8.1 11.6 6 9.5 6Zm9 0c-2.6 0-4.5 2.1-4.5 4.6 0 2.3 1.8 4.1 4 4.1.4 0 .8-.1 1.1-.2-.5 2.3-2.4 4-4.8 4.3v2.1c3.9-.4 6.7-3.5 6.7-8V10.6C21 8.1 20.6 6 18.5 6Z"/></svg>
-        <p class="story-line-solo">A foto que todo pai quer botar num quadro na sala.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="snap-section" id="prova-social" aria-labelledby="prova-social-heading">
+<section id="pacotes" class="snap-section">
   <div class="wrap">
-    <span class="eyebrow reveal" style="margin-top: 56px;">FORA DA FORMATURA</span>
-    <h2 id="prova-social-heading" class="reveal" style="font-size: clamp(1.4rem, 3vw, 2rem); margin: 16px 0 8px;">Outros trabalhos, no Behance</h2>
-    <p class="reveal" style="color: var(--text-muted); font-size: 14px; margin-bottom: 8px; max-width: 480px;">Uma prévia de outros projetos autorais — a galeria completa de cada um tá lá.</p>
-    <div class="outros-grid reveal-stagger">
-      <a class="outro-item" href="https://www.behance.net/gallery/124162717/RIO" target="_blank" rel="noopener">
-        <img src="/formatura/imgs/outro-rio.webp" alt="Prévia do projeto fotográfico RIO." width="1000" height="666">
-        <span class="outro-label">
-          <span class="cat-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2A1.5 1.5 0 0 1 6 6.7h2l1.3-1.9a1 1 0 0 1 .8-.4h4.1a1 1 0 0 1 .9.5L16 6.7h2a1.5 1.5 0 0 1 1.5 1.5v8.3A1.5 1.5 0 0 1 18 18H6a1.5 1.5 0 0 1-1.5-1.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg></span>
-          <span class="name">RIO.</span><span class="cat">Fotografia</span>
-        </span>
-      </a>
-      <a class="outro-item" href="https://www.behance.net/gallery/219338981/stream" target="_blank" rel="noopener">
-        <img src="/formatura/imgs/outro-stream.webp" alt="Prévia do projeto fotográfico Stream" width="666" height="1000">
-        <span class="outro-label">
-          <span class="cat-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2A1.5 1.5 0 0 1 6 6.7h2l1.3-1.9a1 1 0 0 1 .8-.4h4.1a1 1 0 0 1 .9.5L16 6.7h2a1.5 1.5 0 0 1 1.5 1.5v8.3A1.5 1.5 0 0 1 18 18H6a1.5 1.5 0 0 1-1.5-1.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg></span>
-          <span class="name">Stream</span><span class="cat">Fotografia</span>
-        </span>
-      </a>
-      <a class="outro-item" href="https://www.behance.net/gallery/124153307/Smile" target="_blank" rel="noopener">
-        <img src="/formatura/imgs/outro-smile.webp" alt="Prévia do projeto de branding Smile" width="1000" height="562">
-        <span class="outro-label">
-          <span class="cat-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2a8.8 8.8 0 1 0 0 17.6c1.1 0 1.9-.9 1.9-2 0-.5-.2-1-.5-1.4-.3-.4-.5-.9-.5-1.4 0-1.1.9-2 2-2h2.1a3.7 3.7 0 0 0 3.7-3.7c0-3.9-3.9-7.1-8.7-7.1Z"/><circle cx="7.6" cy="10.8" r="1.1" fill="currentColor" stroke="none"/><circle cx="9.6" cy="7.2" r="1.1" fill="currentColor" stroke="none"/><circle cx="14.2" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-          <span class="name">Smile</span><span class="cat">Design</span>
-        </span>
-      </a>
-      <a class="outro-item" href="https://instagram.com/1ury.art" target="_blank" rel="noopener">
-        <img src="/formatura/imgs/outro-rn.webp" alt="Prévia do clipe musical do artista RN" width="666" height="1000">
-        <span class="outro-label">
-          <span class="cat-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.8" width="18" height="14.4" rx="2.2"/><path d="M8.2 4.8v14.4M15.8 4.8v14.4"/><path d="M3 9h5.2M15.8 9H21M3 14.6h5.2M15.8 14.6H21"/></svg></span>
-          <span class="name">RN</span><span class="cat">Clipe Musical</span>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="incluso" class="snap-section">
-  <div class="wrap">
-    <span class="eyebrow reveal">O QUE ESTÁ INCLUSO</span>
-    <h2 class="reveal">Tudo pensado pra você só se preocupar em sorrir</h2>
-    <div class="incluso-grid reveal-stagger">
-      <div class="incluso-card">
-        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2A1.5 1.5 0 0 1 6 6.7h2l1.3-1.9a1 1 0 0 1 .8-.4h4.1a1 1 0 0 1 .9.5L16 6.7h2a1.5 1.5 0 0 1 1.5 1.5v8.3A1.5 1.5 0 0 1 18 18H6a1.5 1.5 0 0 1-1.5-1.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg></div>
-        <h3>Ensaio Individual</h3>
-        <p>Sessão só sua, em locação externa combinada com antecedência — sem correria, sem dividir horário.</p>
-      </div>
-      <div class="incluso-card">
-        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="12" height="12" rx="2"/><path d="M8 20.5h9a2 2 0 0 0 2-2V9.5"/><path d="M3.5 12.7l2.8-3.1 2.3 2.6L12 8.2l3.5 4.5"/><circle cx="7.3" cy="7.3" r="1"/></svg></div>
-        <h3>25 Fotos Editadas</h3>
-        <p>Você escolhe as 25 favoritas no próprio dia. São essas que recebem tratamento e color grading profissional.</p>
-      </div>
-      <div class="incluso-card">
-        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.5s-6.4-3.8-8.6-7.6C1.8 8.6 3 5.8 6 5.8c1.9 0 3.3 1.2 3.8 2.4.5-1.2 1.9-2.4 3.8-2.4 3 0 4.2 2.8 2.6 6.1-2.2 3.8-8.2 7.6-8.2 7.6Z"/></svg></div>
-        <h3>Referências Suas</h3>
-        <p>Pode trazer referências de poses e estilo. Sem fotos engessadas — o ensaio é feito do seu jeito.</p>
-      </div>
-      <div class="incluso-card">
-        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg></div>
-        <h3>Entrega Rápida</h3>
-        <p>Fotos finais em até 5 dias úteis, em alta qualidade, via link do Google Drive.</p>
-      </div>
-      <div class="incluso-card">
-        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M12 8.2v7.6M8.2 12h7.6"/></svg></div>
-        <h3>Fotos Extras</h3>
-        <p>Curtiu mais de 25? Dá pra adquirir fotos extras da sessão à parte.</p>
-      </div>
-      <div class="incluso-card">
-        <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3 9.5h18"/><path d="M6.5 14.5h4"/></svg></div>
-        <h3>Pagamento Facilitado</h3>
-        <p>Cartão de crédito, débito ou Pix. Parcelamento disponível no cartão.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="snap-section">
-  <div class="wrap">
-    <span class="eyebrow reveal">COMO FUNCIONA</span>
-    <h2 class="reveal">Do agendamento à entrega</h2>
-    <div class="steps reveal-stagger">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div>
-          <div class="step-heading"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.2" width="16" height="14.8" rx="2.2"/><path d="M4 9.8h16"/><path d="M8.3 3v3.6M15.7 3v3.6"/><circle cx="8.6" cy="14" r="0.9" fill="currentColor" stroke="none"/><circle cx="12" cy="14" r="0.9" fill="currentColor" stroke="none"/><circle cx="15.4" cy="14" r="0.9" fill="currentColor" stroke="none"/></svg><h3>Agenda</h3></div>
-          <p>Chama no WhatsApp, combina data, horário e local do ensaio.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div>
-          <div class="step-heading"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2A1.5 1.5 0 0 1 6 6.7h2l1.3-1.9a1 1 0 0 1 .8-.4h4.1a1 1 0 0 1 .9.5L16 6.7h2a1.5 1.5 0 0 1 1.5 1.5v8.3A1.5 1.5 0 0 1 18 18H6a1.5 1.5 0 0 1-1.5-1.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg><h3>Ensaio</h3></div>
-          <p>Sessão individual no local combinado — traz suas referências de pose e estilo.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div>
-          <div class="step-heading"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3.2"/><path d="M7.8 12.3l2.6 2.6 5.6-6.2"/></svg><h3>Seleção</h3></div>
-          <p>Ainda no dia, você escolhe as 25 fotos que vão receber edição e tratamento.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div>
-          <div class="step-heading"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 10l7.2 2.7L13 20l8-17Z"/><path d="M10.2 12.7 15.5 7.4"/></svg><h3>Entrega</h3></div>
-          <p>Em até 5 dias úteis, tudo editado chega em alta qualidade por um link do Drive.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="snap-section">
-  <div class="wrap">
-    <div class="price-block">
-      <div class="price-card reveal">
-        <div class="price-value">R$250</div>
-        <div class="price-note">por pessoa · pagamento facilitado</div>
+    <span class="eyebrow reveal">ESCOLHA SEU PACOTE</span>
+    <h2 class="reveal">3 jeitos de fechar seu ensaio</h2>
+    <p class="reveal" style="color: var(--text-muted); font-size: 15px; max-width: 560px; margin-bottom: 40px;">Não precisa escolher só um estilo. No pacote completo você leva as duas experiências — mais fotos, mais variedade — e ainda economiza R$100.</p>
+    <ul class="pricing-grid reveal-stagger">
+      <li class="price-card">
+        <span class="price-eyebrow">SÓ EXTERNA</span>
+        <div class="price-value stat-number" data-count="350" data-prefix="R$">R$0</div>
+        <div class="price-note">por pessoa · locação externa</div>
+        <p class="price-fit">Ideal se você quer o clima ao ar livre e cenário natural.</p>
         <ul>
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" fill="none"/><circle cx="12" cy="10.1" r="2.3"/></svg>Ensaio individual em locação externa</li>
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="12" height="12" rx="2"/><path d="M8 20.5h9a2 2 0 0 0 2-2V9.5"/><path d="M3.5 12.7l2.8-3.1 2.3 2.6L12 8.2l3.5 4.5"/><circle cx="7.3" cy="7.3" r="1"/></svg>25 fotos selecionadas e editadas</li>
-          <li><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg>Entrega em até 5 dias úteis</li>
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M12 8.2v7.6M8.2 12h7.6"/></svg>Fotos extras disponíveis à parte</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" fill="none"/><circle cx="12" cy="10.1" r="2.3"/></svg>Ensaio individual em locação externa</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="12" height="12" rx="2"/><path d="M8 20.5h9a2 2 0 0 0 2-2V9.5"/><path d="M3.5 12.7l2.8-3.1 2.3 2.6L12 8.2l3.5 4.5"/><circle cx="7.3" cy="7.3" r="1"/></svg>25 fotos selecionadas e editadas</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg>Entrega em até 5 dias úteis</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M12 8.2v7.6M8.2 12h7.6"/></svg>Fotos extras disponíveis à parte</li>
         </ul>
+        <a class="btn-primary" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20o%20ensaio%20de%20formatura%20externa" target="_blank" rel="noopener">Quero a externa</a>
+      </li>
+      <li class="price-card">
+        <span class="price-eyebrow">SÓ ESTÚDIO</span>
+        <div class="price-value stat-number" data-count="400" data-prefix="R$">R$0</div>
+        <div class="price-note">por pessoa · fundo à escolha</div>
+        <p class="price-fit">Ideal se você não quer depender do tempo e prefere fundo neutro.</p>
+        <ul>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/></svg>Ensaio individual em estúdio, fundo à escolha</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="12" height="12" rx="2"/><path d="M8 20.5h9a2 2 0 0 0 2-2V9.5"/><path d="M3.5 12.7l2.8-3.1 2.3 2.6L12 8.2l3.5 4.5"/><circle cx="7.3" cy="7.3" r="1"/></svg>15 fotos selecionadas e editadas</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg>Entrega em até 5 dias úteis</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M12 8.2v7.6M8.2 12h7.6"/></svg>Fotos extras disponíveis à parte</li>
+        </ul>
+        <a class="btn-primary" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20o%20ensaio%20de%20formatura%20em%20est%C3%BAdio" target="_blank" rel="noopener">Quero a de estúdio</a>
+      </li>
+      <li class="price-card featured">
+        <span class="badge">Mais Completo</span>
+        <span class="price-eyebrow">EXTERNA + ESTÚDIO</span>
+        <div class="price-strike">de <s>R$750</s> por</div>
+        <div class="price-value stat-number" data-count="650" data-prefix="R$">R$0</div>
+        <div class="price-note">por pessoa · você economiza R$100</div>
+        <p class="price-fit">Ideal se você quer as duas experiências e mais variedade de fotos.</p>
+        <ul>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-10.8a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" fill="none"/><circle cx="12" cy="10.1" r="2.3"/></svg>As duas experiências no mesmo pacote</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="12" height="12" rx="2"/><path d="M8 20.5h9a2 2 0 0 0 2-2V9.5"/><path d="M3.5 12.7l2.8-3.1 2.3 2.6L12 8.2l3.5 4.5"/><circle cx="7.3" cy="7.3" r="1"/></svg>40 fotos selecionadas e editadas (25 + 15)</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 2.5 5.4 13.2a.6.6 0 0 0 .5.9h4.3l-.9 7.4a.4.4 0 0 0 .7.3l7.6-10.8a.6.6 0 0 0-.5-.9h-4.3l.9-7.2a.4.4 0 0 0-.7-.3Z"/></svg>Entrega em até 5 dias úteis</li>
+          <li><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M12 8.2v7.6M8.2 12h7.6"/></svg>Fotos extras disponíveis à parte</li>
+        </ul>
+        <a class="btn-primary" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20o%20pacote%20completo%20de%20formatura%20(externa%20%2B%20est%C3%BAdio)" target="_blank" rel="noopener">Quero o combo</a>
+      </li>
+    </ul>
+
+    <div class="payment-terms reveal-stagger">
+      <div class="payment-item">
+        <div class="icon-badge"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3.5M12 17.5V21M4.5 12H8M16 12h3.5"/><rect x="8" y="8" width="8" height="8" rx="2" transform="rotate(45 12 12)"/></svg></div>
+        <h4>Pix · 10% de desconto</h4>
+        <p>Pagamento à vista no Pix com 10% off em qualquer pacote.</p>
       </div>
-      <div class="price-copy reveal">
-        <span class="eyebrow">POR QUE FECHAR COMIGO</span>
-        <h2 style="margin: 16px 0 24px; font-size: clamp(1.6rem, 3vw, 2.2rem);">Não é só mais um ensaio de formatura</h2>
-        <p>Quem clica é quem edita. <strong>Sem terceirizar</strong> — do enquadramento no dia do ensaio ao color grading final, tudo passa pela minha mão.</p>
-        <p>Você escolhe o local, traz as referências, e eu cuido do resto: luz, direção de pose e o tratamento que faz a foto parecer capa de revista, não retrato de carteirinha.</p>
+      <div class="payment-item">
+        <div class="icon-badge"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3 9.5h18"/><path d="M6.5 14.5h4"/></svg></div>
+        <h4>Débito ou crédito à vista</h4>
+        <p>Sem acréscimo, no cartão ou em dinheiro.</p>
+      </div>
+      <div class="payment-item">
+        <div class="icon-badge"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3 9.5h18"/><circle cx="15.5" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="18.5" cy="14.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <h4>Crédito parcelado</h4>
+        <p>Parcelamento no cartão, com acréscimo da maquininha.</p>
       </div>
     </div>
+    <p class="reveal" style="text-align: center; color: var(--text-muted); font-size: 13px; margin-top: 24px;">Reserva da data com 30% de sinal — o restante você paga no dia do ensaio.</p>
   </div>
 </section>
 
@@ -980,16 +958,16 @@
     <h2 id="faq-heading" class="reveal">Antes de chamar no zap</h2>
     <div class="faq-list reveal-stagger">
       <div class="faq-item">
-        <h3>E se chover ou o tempo virar no dia?</h3>
-        <p>Reagendamos sem custo, dentro do prazo combinado. O clima não pode estragar seu ensaio.</p>
+        <h3>Qual pacote é melhor pra mim?</h3>
+        <p>Quer o clima ao ar livre? Só externa. Prefere não depender do tempo e ter fundo neutro à escolha? Só estúdio. Quer as duas experiências e mais fotos no total? O combo compensa.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Posso pagar parcelado?</h3>
+        <p>Sim, no cartão de crédito, com acréscimo da maquininha. À vista no Pix, débito ou dinheiro, sem acréscimo — e ainda com 10% de desconto no Pix.</p>
       </div>
       <div class="faq-item">
         <h3>Posso levar alguém comigo?</h3>
         <p>O ensaio é individual, mas pode trazer uma pessoa de apoio — só não entra nas fotos.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Quanto tempo dura o ensaio?</h3>
-        <p>Em torno de 1h a 1h30, sem pressa, com tempo pra trocar de pose e testar ideias.</p>
       </div>
       <div class="faq-item">
         <h3>E se eu não gostar de nenhuma foto na seleção?</h3>
@@ -1001,10 +979,11 @@
 
 <section class="final-cta snap-section">
   <div class="reveal">
-    <span class="eyebrow" style="justify-content:center;">FORMATURA 2026</span>
+    <span class="eyebrow" style="justify-content:center;">FORMATURA <span class="dyn-year">2026</span></span>
     <h2>Vamo marcar<br>seu <span class="gradient-text">ensaio</span>?</h2>
+    <p style="color: var(--text-muted); font-size: 15px; margin: -24px 0 32px;">Lembrando: no pacote completo (externa + estúdio) você economiza R$100 e leva 40 fotos editadas.</p>
     <a class="btn-primary" href="https://wa.me/5521972458143?text=Oi%20Iury!%20Quero%20fechar%20meu%20ensaio%20de%20formatura" target="_blank" rel="noopener">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
       Chamar no WhatsApp
     </a>
   </div>
@@ -1013,28 +992,34 @@
 </main>
 
 <footer>
-  <span>© 2026 Iury Senck. Todos os direitos reservados.</span>
+  <span>© <span class="dyn-year">2026</span> Iury Senck. Todos os direitos reservados.</span>
   <div class="social-links">
     <a href="https://wa.me/5521972458143" target="_blank" rel="noopener">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm5.4 14a2.7 2.7 0 0 1-1.9 1.4c-.5.1-1.1.1-1.8-.1a12 12 0 0 1-2.2-.9 10 10 0 0 1-3.5-3.5 5.7 5.7 0 0 1-1-2.6c0-.7.2-1.4.6-1.9.2-.2.4-.3.6-.3h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.3.4a.4.4 0 0 0 0 .5 6.4 6.4 0 0 0 2.6 2.6c.2.1.4.1.5 0l.4-.4c.1-.1.3-.1.5 0l1.7.8c.3.1.4.3.4.5v.5Z"/></svg>
       +55 21 97245-8143
     </a>
     <a href="https://instagram.com/1ury.art" target="_blank" rel="noopener">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg>
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg>
       Instagram
     </a>
     <a href="https://behance.net/iurysenck" target="_blank" rel="noopener">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
       Behance
     </a>
     <a href="mailto:iury.senck7@gmail.com">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.2" width="18" height="13.6" rx="2.2"/><path d="M3.5 6.2 12 12.8l8.5-6.6"/></svg>
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.2" width="18" height="13.6" rx="2.2"/><path d="M3.5 6.2 12 12.8l8.5-6.6"/></svg>
       Email
     </a>
   </div>
 </footer>
 
 <script>
+  // Evergreen year — "temporada de formatura {ano}" always shows the real
+  // current year, so this page never needs a manual date bump.
+  document.querySelectorAll('.dyn-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+
   // Scroll-reveal via IntersectionObserver
   const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
   if (!('IntersectionObserver' in window)) {
@@ -1183,58 +1168,18 @@
     dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
   }
 
-  // Scroll-driven quote reveal — tied 1:1 to scroll position (no CSS transition
-  // duration involved, so it can't lag behind or feel like a canned auto-play).
-  const quoteWrap = document.getElementById('citacao');
-  const quoteMark = quoteWrap.querySelector('.bg-quote-mark');
-  const quoteBlock = quoteWrap.querySelector('.story-block-solo');
-
-  function updateQuote() {
-    const rect = quoteWrap.getBoundingClientRect();
-    const scrollableDistance = quoteWrap.offsetHeight - window.innerHeight;
-    let progress = scrollableDistance > 0 ? -rect.top / scrollableDistance : 0;
-    progress = Math.min(1, Math.max(0, progress));
-
-    // Text finishes revealing by 30% of the section's scroll, leaving the
-    // rest as unhurried hold/reading time before the next section arrives.
-    const textT = smoothstep(progress / 0.3);
-    // The background mark starts a touch later and finishes with the text —
-    // it drifts in behind the text for a slight parallax-style depth cue.
-    const markT = smoothstep((progress - 0.05) / 0.35);
-
-    quoteBlock.style.opacity = textT;
-    quoteBlock.style.transform = `translateY(${(1 - textT) * 40}px) scale(${0.9 + 0.1 * textT})`;
-    quoteBlock.style.filter = `blur(${(1 - textT) * 10}px)`;
-
-    quoteMark.style.opacity = markT;
-    quoteMark.style.transform = `translate(-50%, -55%) scale(${0.8 + 0.2 * markT})`;
-  }
-
-  // Scroll-driven full-screen stats reveal (price / photo count / delivery)
   let ticking = false;
   function onScroll() {
     if (!ticking) {
-      requestAnimationFrame(() => { updateHscroll(); updateQuote(); ticking = false; });
+      requestAnimationFrame(() => { updateHscroll(); ticking = false; });
       ticking = true;
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', () => { measure(); updateHscroll(); updateQuote(); });
-  window.addEventListener('load', () => { measure(); updateHscroll(); updateQuote(); });
+  window.addEventListener('resize', () => { measure(); updateHscroll(); });
+  window.addEventListener('load', () => { measure(); updateHscroll(); });
   measure();
   updateHscroll();
-  updateQuote();
-
-  // Double-tap-like heart pop on gallery item click
-  document.querySelectorAll('.hscroll-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const pop = document.createElement('div');
-      pop.className = 'heart-pop';
-      pop.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 19.5s-6.4-3.8-8.6-7.6C1.8 8.6 3 5.8 6 5.8c1.9 0 3.3 1.2 3.8 2.4.5-1.2 1.9-2.4 3.8-2.4 3 0 4.2 2.8 2.6 6.1-2.2 3.8-8.2 7.6-8.2 7.6Z"/></svg>';
-      item.appendChild(pop);
-      setTimeout(() => pop.remove(), 750);
-    });
-  });
 </script>
 
 </body>
