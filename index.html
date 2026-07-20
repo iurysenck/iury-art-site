@@ -1086,6 +1086,7 @@
 
         .loader.loaded {
             animation: loaderExit 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            pointer-events: none;
         }
 
         @keyframes loaderExit {
@@ -2331,19 +2332,27 @@
 
         // Page Loader
         const loader = document.getElementById('loader');
+        let loaderExited = false;
 
-        window.addEventListener('load', () => {
+        function exitLoader() {
+            if (loaderExited) return;
+            loaderExited = true;
+            // These two must always run together, no matter what fails below --
+            // otherwise scroll stays locked forever (fixed on a real report of
+            // "as vezes so o hero renderiza" caused by an unguarded throw here).
+            try { loader.classList.add('loaded'); } catch (e) {}
+            document.body.style.overflow = 'auto';
+
             setTimeout(() => {
-                loader.classList.add('loaded');
-                document.body.style.overflow = 'auto';
+                try { animateHeroText(); } catch (e) {}
+                try { document.querySelector('.stats').classList.add('animate'); } catch (e) {}
+            }, 500);
+        }
 
-                // Trigger hero animations after loader
-                setTimeout(() => {
-                    animateHeroText();
-                    document.querySelector('.stats').classList.add('animate');
-                }, 500);
-            }, 2000);
-        });
+        window.addEventListener('load', () => setTimeout(exitLoader, 2000));
+        // Safety net: never leave the page stuck behind the loader if 'load'
+        // fires late (slow assets) or not at all.
+        setTimeout(exitLoader, 6000);
 
         // Animate Hero Title Characters
         function animateHeroText() {
@@ -2496,7 +2505,22 @@
             } catch (e) {}
             var popup = document.getElementById('formatura-popup');
             if (!popup) return;
-            setTimeout(function () { popup.classList.add('is-visible'); }, 4500);
+            // Anchor to window.load (same signal the page loader uses) instead
+            // of a flat page-parse timer -- otherwise on a slow load the loader
+            // (z-index 10000) can still be exiting when this tries to show,
+            // and the popup silently ends up unclickable underneath it.
+            var shown = false;
+            function showPopup() {
+                if (shown) return;
+                shown = true;
+                setTimeout(function () { popup.classList.add('is-visible'); }, 1500);
+            }
+            if (document.readyState === 'complete') {
+                showPopup();
+            } else {
+                window.addEventListener('load', showPopup);
+            }
+            setTimeout(showPopup, 8000);
             popup.querySelector('.formatura-popup-close').addEventListener('click', function () {
                 popup.classList.remove('is-visible');
                 try { localStorage.setItem(KEY, Date.now().toString()); } catch (e) {}
