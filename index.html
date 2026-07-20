@@ -1376,6 +1376,72 @@
             border-left: 1px solid var(--accent);
             transform: rotate(45deg);
         }
+        /* Formatura Promo Popup */
+        .formatura-popup {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            max-width: 320px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px 22px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            z-index: 500;
+            transform: translateY(140%);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+            backdrop-filter: blur(12px);
+        }
+        .formatura-popup.is-visible { transform: translateY(0); opacity: 1; }
+        .formatura-popup-eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .formatura-popup-text {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.5;
+            margin-bottom: 14px;
+            padding-right: 14px;
+        }
+        .formatura-popup-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            background: var(--gradient);
+            padding: 9px 16px;
+            border-radius: 100px;
+            transition: transform 0.2s ease;
+        }
+        .formatura-popup-cta:hover { transform: scale(1.04); }
+        .formatura-popup-close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 6px;
+        }
+        .formatura-popup-close:hover { color: var(--text); }
+        @media (max-width: 480px) {
+            .formatura-popup { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .formatura-popup { transition: opacity 0.3s ease; }
+        }
     </style>
 </head>
 
@@ -2412,6 +2478,32 @@
         </div>
     </div>
     <script src="doomicon.js"></script>
+
+    <!-- Formatura Promo Popup -->
+    <div id="formatura-popup" class="formatura-popup" role="dialog" aria-label="Promoção Ensaio de Formatura">
+        <button class="formatura-popup-close" aria-label="Fechar">&times;</button>
+        <div class="formatura-popup-eyebrow">Temporada de Formatura</div>
+        <p class="formatura-popup-text">Ensaio de formatura: <strong>externa</strong>, <strong>estúdio</strong> ou os dois juntos. A partir de <strong>R$350</strong>, com pacote completo saindo por R$650.</p>
+        <a href="/formatura" class="formatura-popup-cta">Ver pacotes →</a>
+    </div>
+    <script>
+        (function () {
+            var KEY = 'formaturaPopupDismissed';
+            var SUPPRESS_DAYS = 7;
+            try {
+                var dismissedAt = localStorage.getItem(KEY);
+                if (dismissedAt && (Date.now() - parseInt(dismissedAt, 10)) < SUPPRESS_DAYS * 24 * 60 * 60 * 1000) return;
+            } catch (e) {}
+            var popup = document.getElementById('formatura-popup');
+            if (!popup) return;
+            setTimeout(function () { popup.classList.add('is-visible'); }, 4500);
+            popup.querySelector('.formatura-popup-close').addEventListener('click', function () {
+                popup.classList.remove('is-visible');
+                try { localStorage.setItem(KEY, Date.now().toString()); } catch (e) {}
+                setTimeout(function () { popup.style.display = 'none'; }, 600);
+            });
+        })();
+    </script>
 </body>
 
 </html>
