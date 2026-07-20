@@ -2268,7 +2268,14 @@
 
         function initParticles() {
             particles = [];
-            const spacing = 30;
+            // Connection drawing below is O(n^2) -- on a large/high-res window
+            // a flat 30px spacing produces thousands of particles (millions of
+            // pair checks per frame), freezing the tab. Cap the total count by
+            // growing spacing with canvas area; never denser than 30px though,
+            // so typical/smaller screens render exactly as before.
+            const MAX_PARTICLES = 450;
+            const idealSpacing = Math.sqrt((canvas.width * canvas.height) / MAX_PARTICLES);
+            const spacing = Math.max(30, idealSpacing);
             const cols = Math.floor(canvas.width / spacing);
             const rows = Math.floor(canvas.height / spacing);
 
