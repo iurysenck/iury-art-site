@@ -472,6 +472,8 @@
 
             overlay.style.display = 'none';
             gameRunning = true;
+            gameLoop(); // (re)start the render loop -- it was never running in
+                        // the background anymore, so this is what kicks it off.
         }
 
         function endGame(isWin) {
@@ -507,9 +509,11 @@
 
         // Initial setup
         updateEnemiesLeft();
-        updateTitle(); 
-        
-        // Start running the background simulation
-        gameRunning = true;
-        gameLoop();
+        updateTitle();
+        // Intentionally NOT auto-starting gameRunning/gameLoop() here anymore --
+        // this used to run a full raycasting simulation in the background on
+        // every single page load for every visitor, forever, regardless of
+        // whether the easter egg was ever discovered. Real perf cost paid by
+        // 100% of visitors for a hidden feature a tiny fraction ever trigger.
+        // startGame() (wired to the spacebar) now kicks off gameLoop() itself.
     });
