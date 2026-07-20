@@ -152,11 +152,10 @@
 
         .logo {
             font-family: 'Syne', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 800;
             color: var(--text);
             text-decoration: none;
-            letter-spacing: -0.02em;
         }
 
         .nav-links {
@@ -1108,8 +1107,7 @@
         .split-text .char {
             display: inline-block;
             opacity: 0;
-            transform: translateY(100%) rotateX(-90deg);
-            transform-origin: center top;
+            transform: translateY(100%);
         }
 
         .split-text.animate .char {
@@ -1126,7 +1124,7 @@
         @keyframes charReveal {
             to {
                 opacity: 1;
-                transform: translateY(0) rotateX(0);
+                transform: translateY(0);
             }
         }
 
